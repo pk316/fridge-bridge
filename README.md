@@ -30,10 +30,10 @@ Hackathon project involving the combination of different data sources into an ap
   - Collin Wong
   - Rebecca Brewster
   - Jay Ko
-  - Michael Lin
+  - Anthony Sorise
 
 - Team 3
-  - Harry Tran
+  - Michael Lin
   - Matt Barnett
   - Saeed Alavi
 
@@ -43,8 +43,8 @@ Hackathon project involving the combination of different data sources into an ap
   - Audrian Manly
   
 - Team 5
+  - Harry Tran
   - Michael Ahn
-  - Anthony Sorise
   - Chris Kim
 
 ### Deadline: 
