@@ -48,5 +48,5 @@ Hackathon project involving the combination of different data sources into an ap
   - Chris Kim
 
 ### Deadline: 
-- 1:00PM Thursday, October 12, 2017
+- 7:00PM Wednesday, October 12, 2017
 
