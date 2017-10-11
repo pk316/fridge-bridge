@@ -1,0 +1,22 @@
+.drinkList {
+    display: none;
+    border: 1px solid black;
+}
+
+.drinkIng {
+    display: none;
+    border: 1px solid black;
+}
+
+.drinkIng div {
+    border: 1px solid black;
+}
+
+.photoImg {
+    height: 200px;
+    width: 200px;
+    float: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+}
