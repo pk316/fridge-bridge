@@ -91,7 +91,7 @@ body {
 }
 
 .recipeArea {
-    height: 500px;
+    height: 700px;
     width: 90vw;
     border: 1px solid lightgrey;
     display: inline-block;
@@ -107,7 +107,7 @@ li a{
 }
 
 li a:hover {
-    color: red;
+    color: orangered;
     text-decoration: none;
 }
 
@@ -173,3 +173,29 @@ li a:hover {
 #video0 {
     background-color: darkorange;
 }
+
+.drinkList, .drinkIng {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/*TESTING SLIDE MOTION FOR DIV*/
+#slide {
+    border: 1px solid black;
+}
+#slide-body{
+    height: 55px;
+    overflow: hidden;
+    transition:             height 500ms ease;
+    -moz-transition:    height 500ms ease;
+    -ms-transition:     height 500ms ease;
+    -o-transition:      height 500ms ease;
+    -webkit-transition: height 500ms ease;
+}
+.expanded {
+    height: 150px !important;
+}
+#more {
+    cursor: pointer;
+    text-align: right;
+}
+/****************************/

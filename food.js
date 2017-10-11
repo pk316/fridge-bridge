@@ -73,7 +73,7 @@ $(document).ready(function() {
 function getRecipe() {
     console.log('submit clicked');
     var ingredient = {
-        recipe: $('.input').val(),
+        recipe: $('.input').val()
     };
     $.ajax({
         dataType: 'JSON',
@@ -82,7 +82,7 @@ function getRecipe() {
         data: {
             '_app_id': 'd3634cd9',
             '_app_key': '8445c9ed2464bb55e4842a2fb8ef2b9a',
-            'q': ingredient.recipe,
+            'q': ingredient.recipe
         },
         success: function (result) {
             console.log(result.matches);
@@ -100,11 +100,11 @@ function getRecipe() {
                 // console.log(name)
                 var linkToRecipe = $('<button>').css({
                     'background-color':'red'
-                })
+                });
 
                 var image = $('<img>').attr('src', recipeImage);
                 var div = $('<div>').append(image, displayName, linkToRecipe);
-                $('#main').append(div);
+                $('.recipeArea').append(div);
                 // $('#main').append(image);
 
                 // console.log(result.matches[i].imageUrlsBySize["90"]);
@@ -138,7 +138,7 @@ function getRecipe() {
         },
         error: function (err) {
             console.log('error', err);
-        },
+        }
     })
 }
 // function getDirections(){
@@ -158,4 +158,5 @@ function getRecipe() {
 //     })
 //     }
 // }
+
 
