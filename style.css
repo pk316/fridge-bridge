@@ -1,3 +1,4 @@
+/*Cesca's Code*/
 #fridgeLogo {
     height: 8vh;
     width: auto;
@@ -111,4 +112,15 @@ li a:hover {
 }
 
 .learningFuzeLinks {
+
+}
+/*Krystal's Code*/
+.carousel_container {
+    width: 50%;
+}
+.carousel_container .hidden{
+    display: none;
+}
+.carousel-control {
+    width: 5%;
 }
