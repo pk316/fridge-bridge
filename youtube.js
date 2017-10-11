@@ -6,7 +6,7 @@ $(document).ready(initializeApp);
  * initializes the application, adds click handlers to submit button
  */
 function initializeApp() {
-    $('button').click(add_vids_to_carousel);
+    $('#drinksButton').click(add_vids_to_carousel);
 }
 /***************************************************************************************************
  DRINKS DIV
@@ -29,9 +29,10 @@ function add_vids_to_carousel() {
         url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
         data: data_object,
         success: function(result) {
-            console.log('success' + result);
+            console.log('ajax call success');
             for (var i=0; i<result.video.length; i++) {
                 console.log(result.video[i].id);
+                $(".carousel_container").removeClass('hidden');
                 var videosList = $("<iframe>",{
                     width: '85%',
                     height: 315,

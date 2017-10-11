@@ -1,6 +1,9 @@
 .carousel_container {
     width: 50%;
 }
+.carousel_container .hidden{
+    display: none;
+}
 .carousel-control {
     width: 5%;
 }
