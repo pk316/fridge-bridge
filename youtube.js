@@ -17,11 +17,12 @@ function initializeApp() {
  */
 function add_vids_to_carousel() {
     console.log('click initiated');
+    $(".item").empty();
     var searchTerm = $('input').val() + '';
     console.log(searchTerm);
     var data_object = {
-        q: searchTerm + ' drink tutorial',
-        maxResults: 3
+        q: searchTerm + ' drink recipe tutorial',
+        maxResults: 5
     };
     $.ajax({
         dataType: 'json',
