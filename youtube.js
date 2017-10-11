@@ -9,6 +9,7 @@ function initializeApp() {
     $('button').click(add_vids_to_carousel);
 }
 /***************************************************************************************************
+ DRINKS DIV
  * add_vids_to_carousel
  * @params {undefined} none
  * @returns  {undefined} none
