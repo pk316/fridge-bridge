@@ -1,3 +1,4 @@
+
 /*Cesca's Code*/
 #fridgeLogo {
     height: 8vh;
@@ -123,4 +124,28 @@ li a:hover {
 }
 .carousel-control {
     width: 5%;
+}
+
+/* peter css */
+.drinkList {
+    display: none;
+    border: 1px solid black;
+}
+
+.drinkIng {
+    display: none;
+    border: 1px solid black;
+}
+
+.drinkIng div {
+    border: 1px solid black;
+}
+
+.photoImg {
+    height: 200px;
+    width: 200px;
+    float: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
 }
