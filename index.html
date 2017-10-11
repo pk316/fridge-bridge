@@ -8,7 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" ></script>
-        <script src="main.js"></script>
+        <script src="youtube.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
@@ -18,7 +18,7 @@
         <p>Enter an Ingredient
 
         <div class="carousel_container">
-            <div id="youtube_carousel" class="carousel slide" data-ride="carousel">
+            <div id="youtube_carousel" class="carousel slide" data-interval="false" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li data-target="#youtube_carousel" data-slide-to="0" class="active"></li>
@@ -28,25 +28,25 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                    <div class="item active" id="video0">
+                    <div class="item active" id="video0" style="text-align: center">
                         <!--youtube video here-->
                     </div>
 
-                    <div class="item" id="video1">
+                    <div class="item" id="video1" style="text-align: center">
                         <!--youtube video here-->
                     </div>
 
-                    <div class="item" id="video2">
+                    <div class="item" id="video2" style="text-align: center">
                         <!--youtube video here-->
                     </div>
                 </div>
 
                 <!-- Left and right controls -->
-                <a class="left carousel-control" href="#youtube_carousel" data-pause="false" data-slide="prev">
+                <a class="left carousel-control" href="#youtube_carousel" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#youtube_carousel" data-pause="false" data-slide="next">
+                <a class="right carousel-control" href="#youtube_carousel" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <span class="sr-only">Next</span>
                 </a>
