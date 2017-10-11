@@ -23,7 +23,7 @@ function initializeApp() {
  */
 function addClickHandlers() {
     $('.submitDrink').click(searchDB);
-    $('.inputDrink').on('keyup', function(event){
+    $('.inputDrink').keyup(function(event){
         if (event.keyCode === 13){
             console.log('enter was pressed');
             $('.submitDrink').click();
