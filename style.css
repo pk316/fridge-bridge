@@ -34,7 +34,7 @@
 }
 
 .header {
-    height: 60vh;
+    height: 80vh;
     width: 100%;
     background-image: url("images/culinary.jpg");
     background-repeat: no-repeat;
@@ -50,7 +50,7 @@
     text-shadow: -1px -3px 13px black;
     text-align: center;
     font-family: 'Slabo 27px', serif;
-    padding-top: 145px;
+    padding-top: 20%;
 }
 
 #mottoMobile {
@@ -61,7 +61,7 @@
     text-shadow: -1px -3px 13px black;
     text-align: center;
     font-family: 'Slabo 27px', serif;
-    padding-top: 100px;
+    padding-top: 50%;
 }
 
 .footer {
