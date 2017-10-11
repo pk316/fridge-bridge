@@ -10,7 +10,7 @@ function initializeApp() {
     // $('.html5-video-container').click(stopScroll);
 }
 /***************************************************************************************************
- DRINKS DIV
+ YOUTUBE VIDS TO CAROUSEL
  * add_vids_to_carousel
  * @params {undefined} none
  * @returns  {undefined} none
@@ -18,7 +18,6 @@ function initializeApp() {
  */
 function add_vids_to_carousel() {
     console.log('click initiated');
-    console.log(this);
     if ($(this).attr('id') === 'drinksButton') {
         $(".drinksItem").empty();
         var drinkSearchTerm = $('#drinkInput').val() + '';
@@ -36,7 +35,7 @@ function add_vids_to_carousel() {
                 console.log('ajax call success');
                 for (var i = 0; i < result.video.length; i++) {
                     console.log(result.video[i].id);
-                    $("#drinks").removeClass('hidden');
+                    $("#drinks_carousel").removeClass('hidden');
                     var videosList = $("<iframe>", {
                         width: '85%',
                         height: 315,
@@ -63,7 +62,7 @@ function add_vids_to_carousel() {
                 console.log('ajax call success');
                 for (var i = 0; i < result.video.length; i++) {
                     console.log(result.video[i].id);
-                    $("#food").removeClass('hidden');
+                    $("#food_carousel").removeClass('hidden');
                     var videosList = $("<iframe>", {
                         width: '85%',
                         height: 315,
