@@ -41,17 +41,22 @@ function getRecipe() {
             'q': ingredient.recipe,
         },
         success: function (result) {
+            var resultObj ={};
             var imageArray = [];
             var recipeUrlArray = [];
+            var displayNameArray = [];
+            var ingredientsArray = [];
             var counter = result.matches.length
             console.log(result.matches);
             for (var i = 0; i < result.matches.length; i++) {
                 var recipeObj = result.matches;
                 var recipeImage = recipeObj[i].imageUrlsBySize['90'];
-                imageArray.push(recipeImage);
+                var displayName = recipeObj[i].sourceDisplayName;
                 var recipeId = recipeObj[i].id;
                 var ingredients = recipeObj[i].ingredients;
-                var displayName = recipeObj[i].sourceDisplayName;
+                imageArray.push(recipeImage);
+                ingredientsArray.push(ingredients);
+                displayNameArray.push(displayName);
                 console.log(ingredients);
 
                 $.ajax({
@@ -64,7 +69,7 @@ function getRecipe() {
                         recipeUrlArray.push(recipeUrl);
                         counter--;
                         if (counter === 0 ){
-                            allCallsDone(imageArray, recipeUrl, displayName)
+                            allCallsDone(resultObj, imageArray, recipeUrl, displayNameArray, ingredientsArray)
                         }
                     }
                 })
@@ -81,9 +86,13 @@ function getRecipe() {
  * @returns  {undefined}
  *
  */
-function allCallsDone(imageArray, recipeUrlArray, displayName){
+function allCallsDone(resultObj, imageArray, recipeUrlArray, displayNameArray,ingredientsArray){
+    resultObj.images = imageArray;
+    resultObj.links = recipeUrlArray;
+    resultObj.names = displayNameArray;
+    resultObj.ingredients= ingredientsArray;
     console.log('all calls have completed');
-    renderImage(imageArray, recipeUrlArray, displayName);
+    renderImage(resultObj);
 }
 /***************************************************************************************************
  * renderImage
@@ -91,39 +100,16 @@ function allCallsDone(imageArray, recipeUrlArray, displayName){
  * @returns  {undefined}
  *
  */
-function renderImage(imageArray, recipeUrlArray, displayName){
+function renderImage(resultObj) {
     console.log('render');
-    for (var i = 0 ; i < imageArray.length ; i++){
-        var imageDiv = $('<div>').prepend($('<p>').append($('<img>').attr('src',imageArray[i])));
-        $('#main').prepend(imageDiv);
+    for (var i = 0; i < resultObj.images.length; i++) {
+        var imageLink = $('<a>').attr('href', resultObj.links[i]);
+        var imageOfDish = $('<img>').attr('src', resultObj.images[i]);
+        // var ingredients = $('<p>').text(resultObj.ingredients[i]);
+        var imageDiv = $('<div>').append($(imageLink).prepend(imageOfDish)).append($('<p>').text(resultObj.names[i] + ' - ' + (resultObj.ingredients[i])));
+        $('.recipeArea').append(imageDiv);
+
     }
+
+
 }
-
-
-
-// var imgElement = $('<img>').attr('src',recipeImage);
-// var imageDiv = $('<div>').append(displayName).prepend(imgElement);
-// $('#main').append(imageDiv);
-
-//
-// function getDirections(recipeId){
-//     var recipeUrlArray =[];
-//
-//     $.ajax({
-//         url: 'http://api.yummly.com/v1/api/recipe/'+recipeId+'?_app_id=fffebcbc&_app_key=34aa6c71c566decd872142c93f381916',
-//         dataType: 'JSON',
-//         method: 'GET',
-//         success: function (data) {
-//             console.log('second ajax' , data.source);
-//             var recipeUrl = data.source.sourceRecipeUrl;
-//             recipeUrlArray.push(recipeUrl);
-//
-//
-//
-//
-//             // var linkToRecipe = $('<a>').attr('href', recipeUrl).text(recipeId);
-//             // $('#main').append(linkToRecipe);
-//         }
-//     });
-
-
