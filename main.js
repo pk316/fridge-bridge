@@ -5,7 +5,6 @@
 /**
  * Listen for the document to load and initialize the application
  */
-$(document).ready(initializeApp);
 /**
  * Define all global variables here.
  */
@@ -19,6 +18,7 @@ $(document).ready(initializeApp);
  *  { name: 'Jill', course: 'Comp Sci', grade: 85 }
  * ];
  */
+
 /***************************************************************************************************
  * initializeApp
  * @params {undefined} none
