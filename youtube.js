@@ -10,11 +10,10 @@ function initializeApp() {
     // $('.html5-video-container').click(stopScroll);
 }
 /***************************************************************************************************
- YOUTUBE VIDS TO CAROUSEL
  * add_vids_to_carousel
  * @params {undefined} none
  * @returns  {undefined} none
- *
+ * when search is utilized, takes user's terms and uses youtube api to pull up related tutorials/recipes
  */
 function add_vids_to_carousel() {
     console.log('click initiated');
@@ -36,12 +35,12 @@ function add_vids_to_carousel() {
                 for (var i = 0; i < result.video.length; i++) {
                     console.log(result.video[i].id);
                     $("#drinks_carousel").removeClass('hidden');
-                    var videosList = $("<iframe>", {
+                    var listVids = $("<iframe>", {
                         width: '85%',
                         height: 315,
                         src: 'https://www.youtube.com/embed/' + result.video[i].id
                     });
-                    $('#drinksVideo' + i).append(videosList);
+                    $('#drinks_video' + i).append(listVids);
                 }
             }
         });
@@ -63,17 +62,21 @@ function add_vids_to_carousel() {
                 for (var i = 0; i < result.video.length; i++) {
                     console.log(result.video[i].id);
                     $("#food_carousel").removeClass('hidden');
-                    var videosList = $("<iframe>", {
+                    var listVids = $("<iframe>", {
                         width: '85%',
                         height: 315,
                         src: 'https://www.youtube.com/embed/' + result.video[i].id
                     });
-                    $('#foodVideo' + i).append(videosList);
+                    $('#food_video' + i).append(listVids);
                 }
             }
         });
     }
 }
+
+// function addYoutubeiFrame (carouselId, videoID) {
+//
+// }
 
 // function stopScroll() {
 //     console.log('click enabled');
