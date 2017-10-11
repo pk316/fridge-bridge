@@ -1,0 +1,112 @@
+#fridgeLogo {
+    height: 8vh;
+    width: auto;
+    margin: 25px 20px 20px 30px;
+}
+
+#gitLogo {
+    height: 8vh;
+    width: auto;
+    margin-left: 5px;
+}
+
+.navmenu {
+    overflow: hidden;
+    background-color: darkorange;
+    font-family: 'Bungee', cursive;
+    height: 15vh;
+}
+
+.navmenu a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 40px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+}
+
+.navmenu a:hover {
+    color: orangered;
+}
+
+.header {
+    height: 60vh;
+    width: 100%;
+    background-image: url("images/culinary.jpg");
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    background-position: center left;
+}
+
+#motto {
+    color: white;
+    margin: auto;
+    max-width: 580px;
+    font-size: 58px;
+    text-shadow: -1px -3px 13px black;
+    text-align: center;
+    font-family: 'Slabo 27px', serif;
+    padding-top: 145px;
+}
+
+#mottoMobile {
+    color: white;
+    margin: auto;
+    max-width: 300px;
+    font-size: 35px;
+    text-shadow: -1px -3px 13px black;
+    text-align: center;
+    font-family: 'Slabo 27px', serif;
+    padding-top: 100px;
+}
+
+.footer {
+    overflow: hidden;
+    background-color: darkorange;
+    font-family: 'Bungee', cursive;
+    height: 30vh;
+    color: white;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.drinkArea {
+    height: 500px;
+    width: 85vw;
+    border: 1px solid lightgrey;
+    display: inline-block;
+    overflow: scroll;
+
+}
+
+h3 {
+    text-align: center;
+}
+
+li a{
+    color: white;
+    font-size: large;
+}
+
+li a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.githubLinks > ul li {
+    list-style: none;
+    padding: 2px;
+}
+
+.learningFuzeLinks {
+}
