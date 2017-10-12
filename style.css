@@ -179,3 +179,23 @@ li a:hover {
     background-repeat: no-repeat;
     border: none;
 }
+
+.carousel_container {
+    margin: auto;
+    border: 6px solid darkorange;
+    border-radius: 10px;
+}
+
+#video0 {
+    background-color: darkorange;
+}
+
+/* PROSITH CSS */
+.recipeList {
+    display: none;
+    border: 1px solid black;
+}
+.recipe{
+    display: none;
+    border: 1px solid black;
+}
