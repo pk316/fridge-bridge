@@ -193,6 +193,7 @@ li a:hover {
 /* PROSITH CSS */
 .recipeList {
     display: none;
+    display: inline-block;
 }
 .recipe{
     display: none;
