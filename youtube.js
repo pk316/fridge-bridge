@@ -6,7 +6,7 @@ $(document).ready(initializeApp);
  * initializes the application, adds click handlers to submit button
  */
 function initializeApp() {
-    $('.submitDrink, #foodButton').click(add_vids_to_carousel);
+    $('.submitDrink, .submitFood').click(add_vids_to_carousel);
     // $('.html5-video-container').click(stopScroll);
 }
 /***************************************************************************************************
@@ -21,7 +21,7 @@ function add_vids_to_carousel() {
     if ($(this).attr('id') === 'submitDrink') {
         $(".drinksItem").empty();
         var drinkSearchTerm = $('.inputDrink').val() + '';
-        $('#searchTerm').text("'" + drinkSearchTerm + "'");
+        $('.searchTerm').text("'" + drinkSearchTerm + "'");
         console.log(drinkSearchTerm);
         var drinkDataObject = {
             q: drinkSearchTerm + ' alcohol drink recipe tutorial',
@@ -68,10 +68,10 @@ function add_vids_to_carousel() {
     } else if ($(this).attr('id') === 'submitFood') {
         $(".foodItem").empty();
         var foodSearchTerm = $('#foodInput').val() + '';
-        $('#searchTerm').text("'" + foodSearchTerm + "'");
+        $('.searchTerm').text("'" + foodSearchTerm + "'");
         console.log(foodSearchTerm);
         var foodDataObject = {
-            q: foodSearchTerm + ' food recipe tutorial',
+            q: foodSearchTerm + ' meals recipe tutorial',
             maxResults: 5
         };
         $.ajax({

@@ -69,18 +69,17 @@
                     <!--<button id="drinksButton">Search Tutorials</button>-->
                 <!--</div>-->
 
-                <!--SEARCH BAR FOR FOOD RECIPES-->
-                <form action="">
-                    <input placeholder="Enter Ingredient" type="text" id='foodInput'>
-                    <button id="submitFood" type="button" class="button">Search Recipes</button>
-                </form>
-
                 <!--SEARCH BAR FOR DRINK RECIPES-->
                 <form class="inputForm">
                     <input class="inputDrink" type="text" name="input" placeholder="Enter Drink Name">
                     <button class="submitDrink" id="submitDrink" type="button">Search Drinks</button>
                 </form>
 
+                <!--SEARCH BAR FOR FOOD RECIPES-->
+                <form action="">
+                    <input placeholder="Enter Ingredient" type="text" id='foodInput'>
+                    <button class="submitFood" id="submitFood" type="button">Search Recipes</button>
+                </form>
 
                 <!--PETER'S CODE FOR DRINKS START-->
                 <div class="container-fluid">
@@ -111,7 +110,7 @@
                             <p></p>
                         </div>
                         <div class="youtubeSec">
-                            <h3>Video Tutorials Containing <span id="searchTerm"></span></h3>
+                            <h3>Video Tutorials Containing <span class="searchTerm"></span></h3>
                             <p>
                  <!--KRYSTAL'S CODE FOR DRINK CAROUSEL START-->
                             <div class="carousel_container hidden" id="drinks_carousel">
@@ -167,6 +166,7 @@
 
                 <!--KRYSTAL'S CODE FOR FOOD CAROUSEL START-->
                 <div class="carousel_container hidden" id="food_carousel">
+                    <h3>Video Tutorials Containing <span class="searchTerm"></span></h3>
                     <div id="youtube_carousel2" class="carousel slide" data-interval=false data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
