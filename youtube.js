@@ -6,41 +6,95 @@ $(document).ready(initializeApp);
  * initializes the application, adds click handlers to submit button
  */
 function initializeApp() {
-    $('#drinksButton').click(add_vids_to_carousel);
+    $('.submitDrink, .submitFood').click(add_vids_to_carousel);
+    // $('.html5-video-container').click(stopScroll);
 }
 /***************************************************************************************************
- DRINKS DIV
  * add_vids_to_carousel
  * @params {undefined} none
  * @returns  {undefined} none
- *
+ * when search is utilized, takes user's terms and uses youtube api to pull up related tutorials/recipes
  */
 function add_vids_to_carousel() {
     console.log('click initiated');
-    $(".item").empty();
-    var searchTerm = $('input').val() + '';
-    console.log(searchTerm);
-    var data_object = {
-        q: searchTerm + ' drink recipe tutorial',
-        maxResults: 5
-    };
-    $.ajax({
-        dataType: 'json',
-        method: 'post',
-        url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
-        data: data_object,
-        success: function(result) {
-            console.log('ajax call success');
-            for (var i=0; i<result.video.length; i++) {
-                console.log(result.video[i].id);
-                $(".carousel_container").removeClass('hidden');
-                var videosList = $("<iframe>",{
-                    width: '85%',
-                    height: 315,
-                    src: 'https://www.youtube.com/embed/' + result.video[i].id
-                });
-                $('#video'+i).append(videosList);
+    console.log(this);
+    if ($(this).attr('id') === 'submitDrink') {
+        $(".drinksItem").empty();
+        var drinkSearchTerm = $('.inputDrink').val() + '';
+        $('.drinksSearchTerm').text("'" + drinkSearchTerm + "'");
+        console.log(drinkSearchTerm);
+        var drinkDataObject = {
+            q: drinkSearchTerm + ' alcohol drink recipe tutorial',
+            maxResults: 5
+        };
+        // USING YOUTUBE API
+        $.ajax({
+            dataType: 'json',
+            method: 'post',
+            url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
+            data: drinkDataObject,
+            success: function (result) {
+                console.log('ajax call success');
+                for (var i = 0; i < result.video.length; i++) {
+                    console.log(result.video[i].id);
+                    $("#drinks_carousel").removeClass('hidden');
+                    var videosList = $("<iframe>", {
+                        width: '90%',
+                        height: 315,
+                        src: 'https://www.youtube.com/embed/' + result.video[i].id
+                    });
+                    $('#drinks_video' + i).append(videosList);
+                }
             }
-        }
-    });
+        });
+    } else if ($(this).attr('id') === 'submitFood') {
+        $(".foodItem").empty();
+        var foodSearchTerm = $('#foodInput').val() + '';
+        $('.foodSearchTerm').text("'" + foodSearchTerm + "'");
+        console.log(foodSearchTerm);
+        var foodDataObject = {
+            q: foodSearchTerm + ' meals recipe tutorial',
+            maxResults: 5
+        };
+        $.ajax({
+            dataType: 'json',
+            method: 'post',
+            url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
+            data: foodDataObject,
+            success: function (result) {
+                console.log('ajax call success');
+                // addYoutubeiFrame('result.video', 'food_carousel', 'food_video');
+                for (var i = 0; i < result.video.length; i++) {
+                    console.log(result.video[i].id);
+                    $("#food_carousel").removeClass('hidden');
+                    var videosList = $("<iframe>", {
+                        width: '90%',
+                        height: 315,
+                        src: 'https://www.youtube.com/embed/' + result.video[i].id
+                    });
+                    $('#food_video' + i).append(videosList);
+                }
+            }
+        });
+    }
+    // function addYoutubeiFrame (array, carouselId, videoId) {
+    //     for (var i = 0; i < array.length; i++) {
+    //         // console.log(array[i].id);
+    //         $("#" + carouselId).removeClass('hidden');
+    //         var videosList = $("<iframe>", {
+    //             width: '90%',
+    //             height: 315,
+    //             src: 'https://www.youtube.com/embed/' + array + [i].id
+    //         });
+    //         $("#" + videoId + i).append(videosList);
+    //     }
+    // }
 }
+
+// function stopScroll() {
+//     console.log('click enabled');
+//     $('#youtube_carousel').attr('data-inverval', 'false');
+// }
+
+// on click, data-interval false
+// on left & right, data-interval true

@@ -315,7 +315,7 @@ function searchCocktailDB() {
             if (data.drinks.length !== 0) {
                 for (var i = 0; i < data.drinks.length; i++) {
                     var drinkList = data.drinks[i].strDrink;
-                    renderDrinkCocktail(drinkList)
+                    renderDrinkCocktail(drinkList);
                 }
                 console.log('server response: ', data.drinks);
             }
