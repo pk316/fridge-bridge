@@ -63,17 +63,23 @@
         <div class="content container-fluid">
             <div class="recipeArea">
 
-                <!--&lt;!&ndash;SEARCH BAR FOR TUTORIALS&ndash;&gt;-->
-                <!--<div class="drinks-container">-->
-                    <!--<input id="drinksTutInput" placeholder="Enter Drink Name">-->
-                    <!--<button id="drinksButton">Search Tutorials</button>-->
-                <!--</div>-->
+                <!--SEARCH BAR FOR TUTORIALS-->
+                <div class="drinks-container">
+                    <input placeholder="Enter Drink Name">
+                    <button id="drinksButton" type="button">Search Tutorials</button>
+                </div>
+
+                <!--SEARCH BAR FOR FOOD RECIPES-->
+                <form action="">
+                    <input placeholder="Enter Ingredient" type="text" class='input'>
+                    <button type="button" class="button">Search Recipes</button>
+                </form>
 
                 <!--SEARCH BAR FOR DRINK RECIPES-->
-                <form class="inputForm">
-                    <input class="inputDrink" type="text" name="input" placeholder="Enter Drink Name">
-                    <button class="submitDrink" id="submitDrink" type="button">Search Drinks</button>
-                </form>
+                <div class="inputForm">
+                    <input class="inputDrink" type="text" name="input" placeholder="Enter Ingredient">
+                    <button class="submitDrink" type="button">Search Drinks</button>
+                </div>
 
                 <!--SEARCH BAR FOR FOOD RECIPES-->
                 <form action="">
@@ -83,7 +89,6 @@
 
                 <!--PETER'S CODE FOR DRINKS START-->
                 <div class="container-fluid">
-
                     <div class="drinkList">
                         <ul>
 
@@ -106,7 +111,7 @@
                             <p></p>
                         </div>
                         <div class="storySec">
-                            <h3>Background</h3>
+                            <h3>Background Story</h3>
                             <p></p>
                         </div>
                         <div class="youtubeSec">
@@ -160,8 +165,14 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
+
+                <nav aria-label="...">
+                    <ul class="pager">
+                        <li class="backToList"><span aria-hidden="true">&larr; Back to List</span></li>
+                        <li class="searchAgain"><span aria-hidden="true">Search Again</span></li>
+                    </ul>
+                </nav>
                 <!--PETER'S CODE FOR DRINKS END-->
 
                 <!--KRYSTAL'S CODE FOR **FOOD** CAROUSEL START-->
