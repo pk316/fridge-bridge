@@ -7,7 +7,6 @@ $(document).ready(initializeApp);
  */
 function initializeApp() {
     $('.submitDrink, .submitFood').click(add_vids_to_carousel);
-    // $('.html5-video-container').click(stopScroll);
 }
 /***************************************************************************************************
  * add_vids_to_carousel
@@ -62,7 +61,6 @@ function add_vids_to_carousel() {
             data: foodDataObject,
             success: function (result) {
                 console.log('ajax call success');
-                // addYoutubeiFrame('result.video', 'food_carousel', 'food_video');
                 for (var i = 0; i < result.video.length; i++) {
                     console.log(result.video[i].id);
                     $("#food_carousel").removeClass('hidden');
@@ -76,24 +74,4 @@ function add_vids_to_carousel() {
             }
         });
     }
-    // function addYoutubeiFrame (array, carouselId, videoId) {
-    //     for (var i = 0; i < array.length; i++) {
-    //         // console.log(array[i].id);
-    //         $("#" + carouselId).removeClass('hidden');
-    //         var videosList = $("<iframe>", {
-    //             width: '90%',
-    //             height: 315,
-    //             src: 'https://www.youtube.com/embed/' + array + [i].id
-    //         });
-    //         $("#" + videoId + i).append(videosList);
-    //     }
-    // }
 }
-
-// function stopScroll() {
-//     console.log('click enabled');
-//     $('#youtube_carousel').attr('data-inverval', 'false');
-// }
-
-// on click, data-interval false
-// on left & right, data-interval true
