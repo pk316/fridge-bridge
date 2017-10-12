@@ -48,7 +48,7 @@ function getRecipe() {
             for (var i = 0; i < result.matches.length; i++) {
                 recipeObj = result.matches;
                 var recipeId = recipeObj[i].id;
-<<<<<<< HEAD
+                
                 var ingredients = recipeObj[i].ingredients;
 
                 var displayName = recipeObj[i].sourceDisplayName;
@@ -66,8 +66,7 @@ function getRecipe() {
                 ingredientsArray.push(ingredients);
                 displayNameArray.push(displayName);
                 console.log(ingredients);
-=======
->>>>>>> b3120c3f1ef79afa2850b36f010ab2fea4079f05
+
 
                 $.ajax({
                     url: 'http://api.yummly.com/v1/api/recipe/' + recipeId + '?_app_id=fffebcbc&_app_key=34aa6c71c566decd872142c93f381916',

@@ -196,20 +196,20 @@ li a:hover {
 }
 
 /*TESTING SLIDE MOTION FOR DIV*/
-#slide {
-    border: 1px solid black;
+#expand-drink {
+    border: 1px solid darkorange;
 }
-#slide-body{
-    height: 55px;
+#expand-drink-body{
+    height: 15px;
     overflow: hidden;
-    transition:             height 500ms ease;
+    transition:         height 500ms ease;
     -moz-transition:    height 500ms ease;
     -ms-transition:     height 500ms ease;
     -o-transition:      height 500ms ease;
     -webkit-transition: height 500ms ease;
 }
 .expanded {
-    height: 150px !important;
+    height: 550px !important;
 }
 #more {
     cursor: pointer;
