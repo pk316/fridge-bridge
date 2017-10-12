@@ -27,7 +27,6 @@ function add_vids_to_carousel() {
             q: drinkSearchTerm + ' alcohol drink recipe tutorial',
             maxResults: 5
         };
-        // USING YOUTUBE API
         $.ajax({
             dataType: 'json',
             method: 'post',
