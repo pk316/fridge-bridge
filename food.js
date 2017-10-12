@@ -17,7 +17,7 @@ function initializeApp(){
  *
  */
 function addClickHandler(){
-    $('.submitFood').click(function () {
+    $('#submitFood').click(function () {
         getRecipe();
     })
     searchAgain();
@@ -73,7 +73,7 @@ function getRecipe() {
         data: {
             '_app_id': 'd3634cd9',
             '_app_key': '8445c9ed2464bb55e4842a2fb8ef2b9a',
-            'q': ingredient.recipe
+            'q': ingredient.recipe,
         },
         success: function (result) {
             var recipeObj ={};
@@ -83,26 +83,6 @@ function getRecipe() {
             for (var i = 0; i < result.matches.length; i++) {
                 recipeObj = result.matches;
                 var recipeId = recipeObj[i].id;
-                
-                var ingredients = recipeObj[i].ingredients;
-
-                var displayName = recipeObj[i].sourceDisplayName;
-
-
-                var linkToRecipe = $('<button>').css({
-                    'background-color':'red'
-                });
-
-                var image = $('<img>').attr('src', recipeImage);
-                var div = $('<div>').append(image, displayName, linkToRecipe);
-                $('.recipeArea').append(div);
-
-                imageArray.push(recipeImage);
-                ingredientsArray.push(ingredients);
-                displayNameArray.push(displayName);
-                console.log(ingredients);
-
-
                 $.ajax({
                     url: 'http://api.yummly.com/v1/api/recipe/' + recipeId + '?_app_id=fffebcbc&_app_key=34aa6c71c566decd872142c93f381916',
                     dataType: 'JSON',
@@ -121,7 +101,7 @@ function getRecipe() {
         },
         error: function (err) {
             console.log('error', err);
-        }
+        },
     })
 }
 /***************************************************************************************************
