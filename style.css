@@ -216,3 +216,10 @@ li a:hover {
     text-align: right;
 }
 /****************************/
+/* PROSITH CSS */
+.recipeList {
+    display: none;
+}
+.recipe{
+    display: none;
+}
