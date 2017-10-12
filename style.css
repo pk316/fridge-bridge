@@ -143,17 +143,27 @@ li a:hover {
 /* peter css */
 .drinkList {
     display: none;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 .drinkIng {
     display: none;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 .drinkIng div {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
+
+.drinkList li {
+    display: table;
+    margin:auto;
+}
+
+.drinkList ul {
+    padding: 0;
+}
+/* end of peter css */
 
 .photoImg {
     height: 200px;
