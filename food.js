@@ -118,6 +118,7 @@ function renderIngredients( recipeObj, ingredientObj, recipeUrlArray) {
     var recipeArray = recipeArrayItem.splice(0,recipeArrayItem.length-1);
     var recipeId = recipeArray.join(' ');
 
+
         var title = $('<p>').text(recipeId+ ' by ' + recipeObj[i].sourceDisplayName);
         $('.recipe h2').append(title);
         var imageOfDish = $('<img>').attr('src',recipeObj[i].imageUrlsBySize["90"]);

@@ -7,6 +7,11 @@
  */
 $(document).ready(initializeApp);
 /***************************************************************************************************
+ * Global Variables
+ */
+var numberOfDrinkCalls = null;
+var totalDrinkCount = 0;
+/***************************************************************************************************
  * initializeApp
  * @params {undefined}
  * @returns: {undefined}
@@ -23,12 +28,44 @@ function initializeApp() {
  */
 function addClickHandlers() {
     $('.submitDrink').click(searchDB);
-    $('.inputDrink').on('keyup', function(event){
+    $('.inputDrink').keyup(function(event){
         if (event.keyCode === 13){
             console.log('enter was pressed');
             $('.submitDrink').click();
         }
+    });
+    searchAgain();
+    backToResult();
+}
+/***************************************************************************************************
+ * searchAgain
+ * @params {undefined}
+ * @returns  {undefined}
+ * resets search bar and clears all list values
+ */
+function searchAgain() {
+    $('.searchAgain').click(function() {
+        $('.drinkList').css('display', 'none');
+        $('.drinkIng div p').text('');
+        $('.drinkIng').css('display', 'none');
+        $('.inputDrink').val('');
     })
+}
+/***************************************************************************************************
+ * backToResult
+ * @params {undefined}
+ * @returns  {undefined}
+ * after user clicks on drink name and data comes up, clicking back to list will move the page back to drink list
+ */
+function backToResult() {
+    var drinkIng = $('.drinkIng');
+    var drinkList = $('.drinkList');
+        $('.backToList').click(function() {
+            if (drinkIng.css('display') !== 'none' && drinkList.css('display') === 'none') {
+                $('.drinkIng').css('display', 'none');
+                $('.drinkList').show();
+            }
+        });
 }
 /***************************************************************************************************
  * searchDB
@@ -37,10 +74,34 @@ function addClickHandlers() {
  * one function to start searching both absolut and cocktail database
  */
 function searchDB() {
+    numberOfDrinkCalls = 2;
     getDrinkList();
     searchCocktailDB();
+    add_vids_to_carousel();
 }
-
+/***************************************************************************************************
+ * totalDrinkDataCheck
+ * @params {array length}
+ * @returns  {undefined}
+ * checks data length to see if any data is being sent back from either server
+ */
+function totalDrinkDataCheck(dataLength){
+    totalDrinkCount+=dataLength;
+    numberOfDrinkCalls--;
+    if(numberOfDrinkCalls===0 && totalDrinkCount===0){
+        displayErrorMessage('Invalid input! Try "Vodka, Tequila, Lime, etc');
+    }
+}
+/***************************************************************************************************
+ * displayErrorMessage
+ * @params {string}
+ * @returns  {undefined}
+ * shows modal and text for error
+ */
+function displayErrorMessage(message){
+    $('#errorModal').modal('show');
+    $('.modal-body > p').text(message);
+}
 //------------------------------ absolut ------------------------------//
 //-----ajax call error-----//
 /***************************************************************************************************
@@ -54,9 +115,9 @@ function errorMessageAbsolut(data) {
     $('#errorModal').modal('show');
     console.log(data);
     if (data.status === 404) {
-        $('.modal-body > p').text('Invalid Absolut Ajax URL');
+        displayErrorMessage('Invalid Absolut Ajax URL');
     } else if (data.status === 0) {
-        $('.modal-body > p').text('Invalid data type');
+        displayErrorMessage('Invalid data type');
     }
 }
 /***************************************************************************************************
@@ -67,12 +128,11 @@ function errorMessageAbsolut(data) {
  */
 function errorMessageAbsolutData(data) {
     console.log('server response error');
-    $('#errorModal').modal('show');
     console.log(data);
     if (data.status === 404) {
-        $('.modal-body > p').text('Invalid AbsolutDB Ajax URL');
+        displayErrorMessage('Invalid AbsolutDB Ajax URL');
     } else if (data.status === 0) {
-        $('.modal-body > p').text('Invalid AbsolutDB Ajax data type');
+        displayErrorMessage('Invalid AbsolutDB Ajax data type');
     }
 }
 //-----getting drinks-----//
@@ -94,18 +154,19 @@ function getDrinkList() {
     } else {
         validInput = inputText;
     }
+    if (inputText === 'vodka' || inputText === 'Vodka') {
+        validInput = 'absolut-vodka'
+    }
     $.ajax({
         dataType: 'JSONP',
         url: 'https://addb.absolutdrinks.com//drinks/with/' + validInput + '/?apiKey=7ff28e17f19747118ccca524e1866701',
         method: 'get',
         success: function(data) {
-            if (data.result.length === 0) {
-                $('#errorModal').modal('show');
-                $('.modal-body > p').text('Invalid input! Try "Vodka, Tequila, Lime, etc');
-            } else {
+            totalDrinkDataCheck(data.result.length);
+            if (data.result.length !== 0) {
                 for (var i = 0; i < data.result.length; i++) {
                     var drinkList = data.result[i].id;
-                    renderDrink(drinkList)
+                    renderDrink(drinkList);
                 }
                 console.log('server response: ', data.result);
             }
@@ -176,6 +237,7 @@ function getDataDrink() {
  * after drink is selected and info is passed along, renders drink info in appropriate divs
  */
 function renderDrinkInfo(array) {
+    $('.drinkList').css('display', 'none');
     $('.drinkIng').show();
     $('.photoImg').css('background-image', 'url(' + array[5] + ')');
     if (typeof(array[0]) === 'object') {
@@ -207,12 +269,11 @@ function renderDrinkInfo(array) {
  */
 function errorMessageCocktail(data) {
     console.log('server response error');
-    $('#errorModal').modal('show');
     console.log(data);
     if (data.status === 200) {
-        $('.modal-body > p').text('Invalid data type or URL');
+        displayErrorMessage('Invalid data type or URL');
     } else if (data.status === 0) {
-        $('.modal-body > p').text('Invalid CocktailDB Ajax method');
+        displayErrorMessage('Invalid CocktailDB Ajax method');
     }
 }
 /***************************************************************************************************
@@ -223,12 +284,11 @@ function errorMessageCocktail(data) {
  */
 function errorMessageCocktailData(data) {
     console.log('server response error');
-    $('#errorModal').modal('show');
     console.log(data);
     if (data.status === 200) {
-        $('.modal-body > p').text('Invalid data type or URL');
+        displayErrorMessage('Invalid data type or URL');
     } else if (data.status === 0) {
-        $('.modal-body > p').text('Invalid CocktailDB Ajax method');
+        displayErrorMessage('Invalid CocktailDB Ajax method');
     }
 }
 //-----getting drinks-----//
@@ -241,24 +301,26 @@ function errorMessageCocktailData(data) {
 function searchCocktailDB() {
     var inputText = $('.inputDrink').val();
     $.ajax({
-        dataType: 'JSON',
+        dataType: 'text',
         url: 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + inputText,
         method: 'get',
         success: function(data) {
-            if (data.drinks.length === 0) {
-                $('#errorModal').modal('show');
-                $('.modal-body > p').text('Invalid input! Try "Vodka, Tequila, Lime, etc');
-            } else {
+            try{
+                data = JSON.parse(data);
+            } catch(error){
+                totalDrinkDataCheck(0);
+                return;
+            }
+            totalDrinkDataCheck(data.drinks.length);
+            if (data.drinks.length !== 0) {
                 for (var i = 0; i < data.drinks.length; i++) {
                     var drinkList = data.drinks[i].strDrink;
-                    renderDrinkCocktail(drinkList)
+                    renderDrinkCocktail(drinkList);
                 }
                 console.log('server response: ', data.drinks);
             }
         },
-        error: function(data) {
-            errorMessageCocktail(data);
-        }
+        error: errorMessageCocktail
     })
 }
 /***************************************************************************************************
@@ -268,6 +330,7 @@ function searchCocktailDB() {
  * loops through drink list and appends to page for cocktailDB
  */
 function renderDrinkCocktail(drinkListCtDB) {
+    $('.drinkList').show();
     var drinkListCt = $('<li>', {
         text: drinkListCtDB,
         css: {
@@ -341,6 +404,7 @@ function getDataCocktail() {
  * after drink is selected and info is passed along, renders drink info in appropriate divs
  */
 function renderCocktailInfo(array) {
+    $('.drinkList').css('display', 'none');
     $('.drinkIng').show();
     $('.photoImg').css('background-image', 'url(' + array[3] + ')');
     if (typeof(array[0]) === 'object') {
