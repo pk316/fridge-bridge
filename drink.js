@@ -74,6 +74,9 @@ function backToResult() {
  * one function to start searching both absolut and cocktail database
  */
 function searchDB() {
+    $('.drinkList').css('display', 'none');
+    $('.drinkIng div p').text('');
+    $('.drinkIng').css('display', 'none');
     numberOfDrinkCalls = 2;
     getDrinkList();
     searchCocktailDB();
@@ -89,7 +92,7 @@ function totalDrinkDataCheck(dataLength){
     totalDrinkCount+=dataLength;
     numberOfDrinkCalls--;
     if(numberOfDrinkCalls===0 && totalDrinkCount===0){
-        displayErrorMessage('Invalid input! Try "Vodka, Tequila, Lime, etc');
+        displayErrorMessage('Invalid input! Try "Vodka, Tequila, Lime, Cola');
     }
 }
 /***************************************************************************************************
