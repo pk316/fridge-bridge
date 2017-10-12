@@ -91,7 +91,7 @@ body {
 }
 
 .recipeArea {
-    height: 500px;
+    height: 700px;
     width: 90vw;
     border: 1px solid lightgrey;
     display: inline-block;
@@ -107,7 +107,7 @@ li a{
 }
 
 li a:hover {
-    color: red;
+    color: orangered;
     text-decoration: none;
 }
 
@@ -157,10 +157,6 @@ li a:hover {
     /*border: 1px solid black;*/
 }
 
-.drinkIng div {
-    /*border: 1px solid black;*/
-}
-
 .drinkList li {
     display: table;
     margin:auto;
@@ -169,13 +165,16 @@ li a:hover {
 .drinkList ul {
     padding: 0;
 }
-/* end of peter css */
+
+.mouseHover {
+    cursor: pointer;
+}
 
 .photoImg {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     float: right;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     border: none;
 }
@@ -190,6 +189,31 @@ li a:hover {
     background-color: darkorange;
 }
 
+.drinkList, .drinkIng {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/*TESTING SLIDE MOTION FOR DIV*/
+#expand-drink {
+    border: 1px solid darkorange;
+}
+#expand-drink-body{
+    height: 15px;
+    overflow: hidden;
+    transition:         height 500ms ease;
+    -moz-transition:    height 500ms ease;
+    -ms-transition:     height 500ms ease;
+    -o-transition:      height 500ms ease;
+    -webkit-transition: height 500ms ease;
+}
+.expanded {
+    height: 550px !important;
+}
+#more {
+    cursor: pointer;
+    text-align: right;
+}
+/****************************/
 /* PROSITH CSS */
 .recipeList {
     display: none;
