@@ -169,6 +169,10 @@ li a:hover {
 .drinkList ul {
     padding: 0;
 }
+
+.mouseHover {
+    cursor: pointer;
+}
 /* end of peter css */
 
 .photoImg {
