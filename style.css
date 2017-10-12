@@ -173,3 +173,14 @@ li a:hover {
 #video0 {
     background-color: darkorange;
 }
+
+/* PROSITH CSS */
+.recipeList {
+    display: none;
+    border: 1px solid black;
+}
+.recipe{
+    display: none;
+    border: 1px solid black;
+}
+
