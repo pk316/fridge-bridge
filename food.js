@@ -16,7 +16,7 @@ function initializeApp(){
  *
  */
 function addClickHandler(){
-    $('.button').click(function () {
+    $('.submitFood').click(function () {
         getRecipe();
     })
 }
@@ -29,8 +29,9 @@ function addClickHandler(){
 function getRecipe() {
     console.log('submit clicked');
     var ingredient = {
-        recipe: $('.input').val(),
+        recipe: $('#foodInput').val(),
     };
+    console.log(ingredient);
     $.ajax({
         dataType: 'JSON',
         url: 'http://api.yummly.com/v1/api/recipes?',
@@ -117,7 +118,6 @@ function renderIngredients( recipeObj, ingredientObj, recipeUrlArray) {
     var recipeArrayItem = recipeObj[i].id.split('-');
     var recipeArray = recipeArrayItem.splice(0,recipeArrayItem.length-1);
     var recipeId = recipeArray.join(' ');
-
 
         var title = $('<p>').text(recipeId+ ' by ' + recipeObj[i].sourceDisplayName);
         $('.recipe h2').append(title);
