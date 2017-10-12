@@ -21,7 +21,7 @@ function add_vids_to_carousel() {
     if ($(this).attr('id') === 'submitDrink') {
         $(".drinksItem").empty();
         var drinkSearchTerm = $('.inputDrink').val() + '';
-        $('.searchTerm').text("'" + drinkSearchTerm + "'");
+        $('.drinksSearchTerm').text("'" + drinkSearchTerm + "'");
         console.log(drinkSearchTerm);
         var drinkDataObject = {
             q: drinkSearchTerm + ' alcohol drink recipe tutorial',
@@ -50,7 +50,7 @@ function add_vids_to_carousel() {
     } else if ($(this).attr('id') === 'submitFood') {
         $(".foodItem").empty();
         var foodSearchTerm = $('#foodInput').val() + '';
-        $('.searchTerm').text("'" + foodSearchTerm + "'");
+        $('.foodSearchTerm').text("'" + foodSearchTerm + "'");
         console.log(foodSearchTerm);
         var foodDataObject = {
             q: foodSearchTerm + ' meals recipe tutorial',
