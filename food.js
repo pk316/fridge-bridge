@@ -68,7 +68,7 @@ function getRecipe() {
     console.log(ingredient);
     $.ajax({
         dataType: 'JSON',
-        url: 'http://api.yummly.com/v1/api/recipes?',
+        url: 'https://api.yummly.com/v1/api/recipes?',
         method: 'GET',
         data: {
             '_app_id': 'd3634cd9',
@@ -84,7 +84,7 @@ function getRecipe() {
                 recipeObj = result.matches;
                 var recipeId = recipeObj[i].id;
                 $.ajax({
-                    url: 'http://api.yummly.com/v1/api/recipe/' + recipeId + '?_app_id=fffebcbc&_app_key=34aa6c71c566decd872142c93f381916',
+                    url: 'https://api.yummly.com/v1/api/recipe/' + recipeId + '?_app_id=fffebcbc&_app_key=34aa6c71c566decd872142c93f381916',
                     dataType: 'JSON',
                     method: 'GET',
                     success: function (data) {

@@ -29,7 +29,7 @@ function add_vids_to_carousel() {
         $.ajax({
             dataType: 'json',
             method: 'post',
-            url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
+            url: 'https://s-apis.learningfuze.com/hackathon/youtube/search.php',
             data: drinkDataObject,
             success: function (result) {
                 console.log('ajax call success');
@@ -57,7 +57,7 @@ function add_vids_to_carousel() {
         $.ajax({
             dataType: 'json',
             method: 'post',
-            url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
+            url: 'https://s-apis.learningfuze.com/hackathon/youtube/search.php',
             data: foodDataObject,
             success: function (result) {
                 console.log('ajax call success');

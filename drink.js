@@ -224,7 +224,7 @@ function getDataDrink() {
             var drinkId = drink.id;
             var skillLvl = drink.skill.name;
             var story = drink.story;
-            var imgUrl = 'http://assets.absolutdrinks.com/drinks/solid-background-white/soft-shadow/floor-reflection/' + drinkId + '.png';
+            var imgUrl = 'https://assets.absolutdrinks.com/drinks/solid-background-white/soft-shadow/floor-reflection/' + drinkId + '.png';
             passData.push(ingred, desc, name, skillLvl, story, imgUrl);
             console.log(passData);
             renderDrinkInfo(passData);
@@ -306,7 +306,7 @@ function searchCocktailDB() {
     var inputText = $('.inputDrink').val();
     $.ajax({
         dataType: 'text',
-        url: 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + inputText,
+        url: 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + inputText,
         method: 'get',
         success: function(data) {
             try{
@@ -355,7 +355,7 @@ function getDataCocktail() {
     console.log('cocktailDB server called');
     $.ajax({
         dataType: 'JSON',
-        url: 'http://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + validInput,
+        url: 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + validInput,
         method: 'get',
         success: function(data) {
             var passData = [];
