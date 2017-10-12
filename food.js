@@ -7,7 +7,8 @@
 $(document).ready(initializeApp)
 
 function initializeApp(){
-    addClickHandler()
+    addClickHandler();
+
 }
 /***************************************************************************************************
  * addClickHandlers
@@ -19,6 +20,39 @@ function addClickHandler(){
     $('.submitFood').click(function () {
         getRecipe();
     })
+    searchAgain();
+    backToResult();
+}
+/***************************************************************************************************
+ * searchAgain
+ * @params {undefined}
+ * @returns  {undefined}
+ * resets search bar and clears all list values
+ */
+function searchAgain() {
+    $('.searchAgain').click(function() {
+        console.log('search again was pressed');
+        $('.recipeList').css('display', 'none');
+        $('.recipe div p').text('');
+        $('.recipe').css('display', 'none');
+        $('.inputFood').val('');
+    });
+}
+/***************************************************************************************************
+ * backToResult
+ * @params {undefined}
+ * @returns  {undefined}
+ * after user clicks on drink name and data comes up, clicking back to list will move the page back to drink list
+ */
+function backToResult() {
+    var recipe = $('.recipe');
+    var recipeList = $('.recipeList');
+    $('.backToList').click(function() {
+        if (recipe.css('display') !== 'none' && recipeList.css('display') === 'none') {
+            $('.recipe').css('display', 'none');
+            $('.recipeList').show();
+        }
+    });
 }
 /***************************************************************************************************
  * getRecipe
@@ -97,8 +131,7 @@ function getRecipe() {
  *
  */
 function allCallsDone(recipeObj, recipeUrlArray){
-
-    console.log('all calls have completed');
+    console.log('all calls are complete');
     renderRecipe(recipeObj, recipeUrlArray);
 }
 /***************************************************************************************************
@@ -117,11 +150,19 @@ function renderRecipe(recipeObj, recipeUrlArray){
             var recipeId = recipeArray.join(' ');
             var ingredients = recipeObj[i].ingredients;
             ingredientObj[i] = ingredients;
-            var imageOfDish = $('<img>').attr('src',recipeObj[i].imageUrlsBySize["90"]).click(function(){
-                renderIngredients(recipeObj, ingredientObj, recipeUrlArray);
-            });
-            var imageDiv = $('<div>').append($(imageOfDish)).append($('<p>').text(recipeId + ' by ' + recipeObj[i].sourceDisplayName));
-            $('.recipeList').append(imageDiv);
+                if ( i < 5){
+                    var imageOfDish = $('<img>').attr('src',recipeObj[i].imageUrlsBySize["90"]).click(function(){
+                        renderIngredients(recipeObj, ingredientObj, recipeUrlArray);
+                    });
+                    var imageDiv = $('<div>').append($(imageOfDish)).append($('<p>').text(recipeId + ' by ' + recipeObj[i].sourceDisplayName));
+                    $('.rL1').append(imageDiv);
+                } else{
+                    var imageOfDish = $('<img>').attr('src',recipeObj[i].imageUrlsBySize["90"]).click(function(){
+                        renderIngredients(recipeObj, ingredientObj, recipeUrlArray);
+                    });
+                    var imageDiv = $('<div>').append($(imageOfDish)).append($('<p>').text(recipeId + ' by ' + recipeObj[i].sourceDisplayName));
+                    $('.rL2').append(imageDiv);
+                }
     }
 
 }
@@ -133,7 +174,7 @@ function renderRecipe(recipeObj, recipeUrlArray){
  */
 function renderIngredients( recipeObj, ingredientObj, recipeUrlArray) {
     $('.recipe').show();
-    $('.recipeList').remove();
+    $('.recipeList').hide();
 
     var recipeArrayItem = recipeObj[i].id.split('-');
     var recipeArray = recipeArrayItem.splice(0,recipeArrayItem.length-1);
