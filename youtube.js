@@ -39,7 +39,7 @@ function add_vids_to_carousel() {
                     console.log(result.video[i].id);
                     $("#drinks_carousel").removeClass('hidden');
                     var videosList = $("<iframe>", {
-                        width: '95%',
+                        width: '90%',
                         height: 315,
                         src: 'https://www.youtube.com/embed/' + result.video[i].id
                     });
@@ -47,24 +47,6 @@ function add_vids_to_carousel() {
                 }
             }
         });
-        // USING ABSOLUT VID API
-        // $.ajax({
-        //     dataType: 'jsonp',
-        //     method: 'get',
-        //     url: 'https://addb.absolutdrinks.com/drinks/with/' + drinkSearchTerm + '?apiKey=7ff28e17f19747118ccca524e1866701',
-        //     success: function (result) {
-        //         console.log('ajax call success');
-        //         for (var i=0; i<result.result.length; i++){
-        //             $("#drinks_carousel").removeClass('hidden');
-        //                 var videosList = $("<iframe>", {
-        //                     width: '85%',
-        //                     height: 315,
-        //                     src: 'https://www.youtube.com/embed/' + result.result[0].videos[0].video
-        //                 });
-        //                 $('#drinks_video' + i).append(videosList);
-        //         }
-        //     }
-        // });
     } else if ($(this).attr('id') === 'submitFood') {
         $(".foodItem").empty();
         var foodSearchTerm = $('#foodInput').val() + '';
@@ -81,11 +63,12 @@ function add_vids_to_carousel() {
             data: foodDataObject,
             success: function (result) {
                 console.log('ajax call success');
+                // addYoutubeiFrame('result.video', 'food_carousel', 'food_video');
                 for (var i = 0; i < result.video.length; i++) {
                     console.log(result.video[i].id);
                     $("#food_carousel").removeClass('hidden');
                     var videosList = $("<iframe>", {
-                        width: '85%',
+                        width: '90%',
                         height: 315,
                         src: 'https://www.youtube.com/embed/' + result.video[i].id
                     });
@@ -94,11 +77,19 @@ function add_vids_to_carousel() {
             }
         });
     }
+    // function addYoutubeiFrame (array, carouselId, videoId) {
+    //     for (var i = 0; i < array.length; i++) {
+    //         // console.log(array[i].id);
+    //         $("#" + carouselId).removeClass('hidden');
+    //         var videosList = $("<iframe>", {
+    //             width: '90%',
+    //             height: 315,
+    //             src: 'https://www.youtube.com/embed/' + array + [i].id
+    //         });
+    //         $("#" + videoId + i).append(videosList);
+    //     }
+    // }
 }
-
-// function addYoutubeiFrame (carouselId, videoID) {
-//
-// }
 
 // function stopScroll() {
 //     console.log('click enabled');
