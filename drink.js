@@ -44,7 +44,7 @@ function addClickHandlers() {
  * resets search bar and clears all list values
  */
 function searchAgain() {
-    $('.searchAgain').click(function() {
+    $('.searchAgain').addClass('mouseHover').click(function() {
         $('.drinkList').css('display', 'none');
         $('.drinkIng div p').text('');
         $('.drinkIng').css('display', 'none');
@@ -60,7 +60,7 @@ function searchAgain() {
 function backToResult() {
     var drinkIng = $('.drinkIng');
     var drinkList = $('.drinkList');
-        $('.backToList').click(function() {
+        $('.backToList').addClass('mouseHover').click(function() {
             if (drinkIng.css('display') !== 'none' && drinkList.css('display') === 'none') {
                 $('.drinkIng').css('display', 'none');
                 $('.drinkList').show();
@@ -74,6 +74,9 @@ function backToResult() {
  * one function to start searching both absolut and cocktail database
  */
 function searchDB() {
+    $('.drinkList').css('display', 'none');
+    $('.drinkIng div p').text('');
+    $('.drinkIng').css('display', 'none');
     numberOfDrinkCalls = 2;
     getDrinkList();
     searchCocktailDB();
@@ -89,7 +92,7 @@ function totalDrinkDataCheck(dataLength){
     totalDrinkCount+=dataLength;
     numberOfDrinkCalls--;
     if(numberOfDrinkCalls===0 && totalDrinkCount===0){
-        displayErrorMessage('Invalid input! Try "Vodka, Tequila, Lime, etc');
+        displayErrorMessage('Invalid input! Try "Vodka, Tequila, Lime, Cola');
     }
 }
 /***************************************************************************************************
@@ -102,6 +105,7 @@ function displayErrorMessage(message){
     $('#errorModal').modal('show');
     $('.modal-body > p').text(message);
 }
+
 //------------------------------ absolut ------------------------------//
 //-----ajax call error-----//
 /***************************************************************************************************

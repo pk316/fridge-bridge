@@ -157,10 +157,6 @@ li a:hover {
     /*border: 1px solid black;*/
 }
 
-.drinkIng div {
-    /*border: 1px solid black;*/
-}
-
 .drinkList li {
     display: table;
     margin:auto;
@@ -169,16 +165,18 @@ li a:hover {
 .drinkList ul {
     padding: 0;
 }
-/* end of peter css */
+
+.mouseHover {
+    cursor: pointer;
+}
 
 .photoImg {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     float: right;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     border: none;
-
 }
 
 .carousel_container {
