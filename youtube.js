@@ -3,7 +3,7 @@ $(document).ready(initializeApp);
  * initializeApp
  * @params {undefined} none
  * @returns: {undefined} none
- * initializes the application, adds click handlers to submit button
+ * initializes the application, adds click handlers to submit buttons
  */
 function initializeApp() {
     $('.submitDrink, .submitFood').click(add_vids_to_carousel);
