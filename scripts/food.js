@@ -17,7 +17,7 @@ function initializeApp(){
  *
  */
 function addClickHandler(){
-    $('#submitFood').click(function () {
+    $('#submit-food').click(function () {
         getRecipe();
     })
     searchAgain();
@@ -30,12 +30,12 @@ function addClickHandler(){
  * resets search bar and clears all list values
  */
 function searchAgain() {
-    $('.searchAgain').click(function() {
+    $('.search-again').click(function() {
         console.log('search again was pressed');
-        $('.recipeList').css('display', 'none');
+        $('.recipe-list').css('display', 'none');
         $('.recipe div p').text('');
         $('.recipe').css('display', 'none');
-        $('.inputFood').val('');
+        $('.input-food').val('');
     });
 }
 /***************************************************************************************************
@@ -46,11 +46,11 @@ function searchAgain() {
  */
 function backToResult() {
     var recipe = $('.recipe');
-    var recipeList = $('.recipeList');
+    var recipeList = $('.recipe-list');
     $('.backToList').click(function() {
         if (recipe.css('display') !== 'none' && recipeList.css('display') === 'none') {
             $('.recipe').css('display', 'none');
-            $('.recipeList').show();
+            $('.recipe-list').show();
         }
     });
 }
@@ -63,7 +63,7 @@ function backToResult() {
 function getRecipe() {
     console.log('submit clicked');
     var ingredient = {
-        recipe: $('#foodInput').val(),
+        recipe: $('#food-input').val(),
     };
     console.log(ingredient);
     $.ajax({
@@ -122,7 +122,7 @@ function allCallsDone(recipeObj, recipeUrlArray){
  */
 function renderRecipe(recipeObj, recipeUrlArray){
    var ingredientObj = {};
-    $('.recipeList').show();
+    $('.recipe-list').show();
     console.log('render');
     for ( i in recipeObj){
             var recipeArrayItem = recipeObj[i].id.split('-');
@@ -154,7 +154,7 @@ function renderRecipe(recipeObj, recipeUrlArray){
  */
 function renderIngredients( recipeObj, ingredientObj, recipeUrlArray) {
     $('.recipe').show();
-    $('.recipeList').hide();
+    $('.recipe-list').hide();
 
     var recipeArrayItem = recipeObj[i].id.split('-');
     var recipeArray = recipeArrayItem.splice(0,recipeArrayItem.length-1);
@@ -164,9 +164,9 @@ function renderIngredients( recipeObj, ingredientObj, recipeUrlArray) {
         $('.recipe h2').append(title);
         var imageOfDish = $('<img>').attr('src',recipeObj[i].imageUrlsBySize["90"]);
         var imageDiv = $('<div>').append($(imageOfDish));
-        $('.recipePhoto').append(imageDiv);
+        $('.recipe-photo').append(imageDiv);
         var instructions = $('<a>').attr('href',recipeUrlArray[i]).text(recipeUrlArray[i]);
         $('.recipe .instructions p').append(instructions);
         var ingredientList = $('<p>').text(ingredientObj[i]);
-        $('.recipe .foodIngredients').append(ingredientList);
+        $('.recipe .food-ingredients').append(ingredientList);
 }

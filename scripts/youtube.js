@@ -6,7 +6,7 @@ $(document).ready(initializeApp);
  * initializes the application, adds click handlers to submit buttons
  */
 function initializeApp() {
-    $('.submitDrink, .submitFood').click(add_vids_to_carousel);
+    $('.submit-drink, .submit-food').click(add_vids_to_carousel);
 }
 /***************************************************************************************************
  * add_vids_to_carousel
@@ -17,10 +17,10 @@ function initializeApp() {
 function add_vids_to_carousel() {
     console.log('click initiated');
     console.log(this);
-    if ($(this).attr('id') === 'submitDrink') {
-        $(".drinksItem").empty();
-        var drinkSearchTerm = $('.inputDrink').val() + '';
-        $('.drinksSearchTerm').text("'" + drinkSearchTerm + "'");
+    if ($(this).attr('id') === 'submit-drink') {
+        $(".drinks-item").empty();
+        var drinkSearchTerm = $('.input-drink').val() + '';
+        $('.drinks-search-term').text("'" + drinkSearchTerm + "'");
         console.log(drinkSearchTerm);
         var drinkDataObject = {
             q: drinkSearchTerm + ' alcohol drink recipe tutorial',
@@ -35,20 +35,20 @@ function add_vids_to_carousel() {
                 console.log('ajax call success');
                 for (var i = 0; i < result.video.length; i++) {
                     console.log(result.video[i].id);
-                    $("#drinks_carousel").removeClass('hidden');
+                    $("#drinks-carousel").removeClass('hidden');
                     var videosList = $("<iframe>", {
                         width: '90%',
                         height: 315,
                         src: 'https://www.youtube.com/embed/' + result.video[i].id
                     });
-                    $('#drinks_video' + i).append(videosList);
+                    $('#drinks-video' + i).append(videosList);
                 }
             }
         });
-    } else if ($(this).attr('id') === 'submitFood') {
-        $(".foodItem").empty();
-        var foodSearchTerm = $('#foodInput').val() + '';
-        $('.foodSearchTerm').text("'" + foodSearchTerm + "'");
+    } else if ($(this).attr('id') === 'submit-food') {
+        $(".food-item").empty();
+        var foodSearchTerm = $('#food-input').val() + '';
+        $('.food-search-term').text("'" + foodSearchTerm + "'");
         console.log(foodSearchTerm);
         var foodDataObject = {
             q: foodSearchTerm + ' meals recipe tutorial',
@@ -63,13 +63,13 @@ function add_vids_to_carousel() {
                 console.log('ajax call success');
                 for (var i = 0; i < result.video.length; i++) {
                     console.log(result.video[i].id);
-                    $("#food_carousel").removeClass('hidden');
+                    $("#food-carousel").removeClass('hidden');
                     var videosList = $("<iframe>", {
                         width: '90%',
                         height: 315,
                         src: 'https://www.youtube.com/embed/' + result.video[i].id
                     });
-                    $('#food_video' + i).append(videosList);
+                    $('#food-video' + i).append(videosList);
                 }
             }
         });
