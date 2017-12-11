@@ -83,7 +83,21 @@ li > a {
 }
 
 /* MAIN CONTENT */
+.recipe-area {
+    height: 700px;
+    width: 90vw;
+    border: 1px solid lightgrey;
+    display: flex;
+    overflow: scroll;
+    background-color: papayawhip;
+}
 
+.drink-search, .food-search {
+    height: 100%;
+    width: 50%;
+    margin: auto;
+    display: block;
+}
 
 
 
@@ -98,16 +112,6 @@ li > a {
     display: flex;
     justify-content: space-around;
     margin: auto;
-}
-
-.recipe-area {
-    height: 700px;
-    width: 90vw;
-    border: 1px solid lightgrey;
-    display: inline-block;
-    overflow: scroll;
-    background-color: papayawhip;
-
 }
 
 .student-logos {

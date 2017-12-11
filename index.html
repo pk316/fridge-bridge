@@ -58,18 +58,18 @@
             <div class="recipe-area">
                 
                 <!--SEARCH BAR FOR DRINK RECIPES-->
-                <div class="input-form">
-                    <input class="input-drink" type="text" name="input" placeholder="Enter Ingredient">
+                <div class="drink-search">
+                    <input class="input-drink form-group col-sm-6 col-sm-offset-3 col-xs-12" type="text" name="input" placeholder="Enter Ingredient">
                     <button class="submit-drink" id="submit-drink" type="button">Search Drinks</button>
                 </div>
 
                 <!--SEARCH BAR FOR FOOD RECIPES-->
-                <form action="">
+                <div class="food-search">
                     <input placeholder="Enter Ingredient" type="text" id='food-input'>
                     <button class="submit-food" id="submit-food" type="button">Search Recipes</button>
-                </form>
+                </div>
 
-                <!--PETER'S CODE FOR DRINKS START-->
+                <!--DRINKS START-->
                 <div class="expand-drink">
                     <div class="expand-drink-body">
                         <div class="container-fluid">
@@ -101,7 +101,7 @@
                                 <div class="youtube-sec">
                                     <h3>Video Tutorials Containing <span class="drinksSearchTerm"></span></h3>
                                     <p>
-                        <!--KRYSTAL'S CODE FOR DRINK CAROUSEL START-->
+                                    <!--DRINK CAROUSEL START-->
                                     <div class="carousel_container hidden" id="drinks-carousel">
                                         <div class="carousel slide" id="youtube-carousel1" data-pause='hover' data-ride="carousel">
                                             <!-- Indicators -->
@@ -144,15 +144,12 @@
                                                 <span class="sr-only">Next</span>
                                             </a>
                                         </div>
-
-                                    </div>
-                        <!--KRYSTAL'S CODE FOR DRINK CAROUSEL END-->
+                                    </div><!--DRINK CAROUSEL END-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--PETER'S CODE FOR DRINKS END-->
+                </div><!--DRINKS END-->
 
                 <!--PROSITH'S CODES-->
                 <div class="container-fluid">
@@ -176,7 +173,7 @@
                         <div class="vid-tutorials">
                             <h3>Video Tutorials Containing <span class="foodSearchTerm"></span></h3>
                             <p>
-                                <!--KRYSTAL'S CODE FOR **FOOD** CAROUSEL START-->
+                            <!--FOOD CAROUSEL START-->
                             <div class="carousel-container hidden" id="food-carousel">
                                 <div class="carousel slide" id="youtube-carousel2" data-pause='hover' data-ride="carousel">
                                     <!-- Indicators -->
@@ -220,17 +217,16 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <!--KRYSTAL'S CODE FOR **FOOD** CAROUSEL END-->
+                        </div><!--FOOD CAROUSEL END-->
                     </div>
                 </div>
                 
-                <nav aria-label="...">
+                <!-- <nav aria-label="...">
                     <ul class="pager">
                         <li class="back-to-list"><span aria-hidden="true">&larr; Back to List</span></li>
                         <li class="search-again"><span aria-hidden="true">Search Again</span></li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
         </div><!--MAIN CONTENT-->
 
@@ -259,7 +255,6 @@
                     <!-- <li><a href="https://github.com/csinocruz">Francesca</a></li> -->
                 </ul>
             </div>
-        </div>
-        <!--FOOTER END-->
+        </div><!--FOOTER END-->
     </body>
 </html>
