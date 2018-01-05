@@ -1,127 +1,124 @@
-
-/*Cesca's Code*/
-
 body {
     background-color: darkorange;
 }
 
-#fridgeLogo {
-    height: 8vh;
-    width: auto;
-    margin: 25px 20px 20px 30px;
+ul > li {
+    list-style-type: none;
 }
 
-#gitLogo {
-    height: 8vh;
-    width: auto;
-    margin-left: 5px;
-}
-
-.navmenu {
-    overflow: hidden;
-    background-color: darkorange;
-    font-family: 'Bungee', cursive;
-    height: 15vh;
-    width: 100%;
-    position: fixed;
-    border-bottom: 1px solid orangered;
-}
-
-.navmenu a {
-    float: right;
-    display: block;
-    text-align: center;
-    padding: 40px 16px;
+li > a {
     text-decoration: none;
-    font-size: 17px;
     color: white;
 }
 
-.navmenu a:hover {
-    color: orangered;
+/* NAVBAR */
+.navbar {
+    font-family: 'Bungee', cursive;
 }
 
-.header {
-    height: 80vh;
+.mb5 {
+    margin-bottom: 5px;
+}
+
+.nav-left > img {
+    height: 5vh;
+}
+
+.nav-left > p {
+    display: inline;
+    color: white;
+    padding-left: 15px;
+    margin: 0;
+}
+
+.dropdown-menu {
+    background-color: darkorange;
+}
+
+.dropdown-menu > li {
+    text-align: center;
+}
+
+.nav > li > a:focus, .nav > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    text-decoration: none;
+    background-color: white;
+    color: darkorange;
+}
+
+#main-nav {
+    padding-top: 5px;
+}
+
+.mobile-nav {
+    height: 10vh;
+}
+
+.nav-toggle {
+    position: relative;
+    float: right;
+    margin: 1px 10px;
+}
+
+/* WELCOME */
+.welcome {
+    height: 50vh;
     width: 100%;
     background-image: url("images/culinary.jpg");
     background-repeat: no-repeat;
-    /*background-attachment: fixed;*/
     background-position: center left;
+    padding: 1% 0;
+    display: flex;
 }
 
-#motto {
+.welcome > h1 {
     color: white;
     margin: auto;
-    max-width: 580px;
-    font-size: 58px;
     text-shadow: -1px -3px 13px black;
-    text-align: center;
     font-family: 'Slabo 27px', serif;
-    padding-top: 20%;
+    text-align: center;
 }
 
-#mottoMobile {
-    color: white;
+.welcome > h1 b {
+    color: darkorange;
+}
+
+/* MAIN CONTENT */
+.recipe-area {
+    height: 700px;
+    width: 90vw;
+    border: 1px solid lightgrey;
+    display: flex;
+    overflow: scroll;
+    background-color: papayawhip;
+}
+
+/* .drink-search, .food-search {
+    height: 100%;
+    width: 50%;
     margin: auto;
-    max-width: 300px;
-    font-size: 35px;
-    text-shadow: -1px -3px 13px black;
-    text-align: center;
-    font-family: 'Slabo 27px', serif;
-    padding-top: 50%;
+    display: block;
+} */
+
+
+
+#fridge-logo {
+    height: 8vh;
+    width: auto;
+    margin: 7px 20px 20px 30px;
 }
 
-.footer {
-    overflow: auto;
-    background-color: darkorange;
-    font-family: 'Bungee', cursive;
-    height: 40vh;
-    color: white;
-    padding: 0px 8vw;
-    /*display: flex;*/
-    /*justify-content: space-around;*/
-}
 
 .content {
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: auto;
 }
 
-.recipeArea {
-    height: 700px;
-    width: 90vw;
-    border: 1px solid lightgrey;
-    display: inline-block;
-    overflow: scroll;
-    background-color: papayawhip;
-
-}
-
-li a{
-    color: white;
-    font-size: large;
-
-}
-
-li a:hover {
-    color: orangered;
-    text-decoration: none;
-}
-
-.githubLinks > ul li {
-    list-style: none;
-    padding: 2px;
-     /*text-align: center;*/
- }
-
-.studentLogos .githubLinks #gitLogo {
+.student-logos {
     text-align: center;
 }
 
-#mainLogo {
+#main-logo {
     height: 34vh;
     width: auto;
     padding-top: 30px;
@@ -129,14 +126,13 @@ li a:hover {
     padding-bottom: 15px;
 }
 
-/*Krystal's Code*/
-.carousel_container {
+.carousel-container {
     width: 60%;
     margin: auto;
     border: 6px solid darkorange;
     border-radius: 10px;
 }
-.carousel_container .hidden{
+.carousel-container .hidden{
     display: none;
 }
 .carousel-control {
@@ -146,42 +142,37 @@ li a:hover {
     background-color: darkorange;
 }
 
-/* peter css */
-.drinkList {
+.drink-list {
     display: none;
-    /*border: 1px solid black;*/
 }
 
-.drinkIng {
+.drink-ing {
     display: none;
-    /*border: 1px solid black;*/
 }
 
-.drinkIng div {
-    /*border: 1px solid black;*/
-}
-
-.drinkList li {
+.drink-list li {
     display: table;
     margin:auto;
 }
 
-.drinkList ul {
+.drink-list ul {
     padding: 0;
 }
-/* end of peter css */
 
-.photoImg {
-    height: 200px;
-    width: 200px;
-    float: right;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: none;
-
+.mouse-hover {
+    cursor: pointer;
 }
 
-.carousel_container {
+.photo-img {
+    height: 300px;
+    width: 300px;
+    float: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.carousel-container {
     margin: auto;
     border: 6px solid darkorange;
     border-radius: 10px;
@@ -191,11 +182,10 @@ li a:hover {
     background-color: darkorange;
 }
 
-.drinkList, .drinkIng {
+.drink-list, .drink-ing {
     font-family: 'Quicksand', sans-serif;
 }
 
-/*TESTING SLIDE MOTION FOR DIV*/
 #expand-drink {
     border: 1px solid darkorange;
 }
@@ -215,11 +205,61 @@ li a:hover {
     cursor: pointer;
     text-align: right;
 }
-/****************************/
-/* PROSITH CSS */
-.recipeList {
+
+.recipe-list {
     display: none;
+    display: inline-block;
 }
 .recipe{
     display: none;
+}
+
+
+
+
+
+/* FOOTER */
+.footer {
+    font-family: 'Bungee', cursive;
+    height: 10vh;
+    color: white;
+}
+
+#git-logo {
+    height: 5vh;
+}
+
+.github-links {
+    margin-top: 40px;
+}
+
+.footer h3 {
+    text-align: center;
+}
+
+.github-links > li {
+    display: inline;
+}
+
+.github-links > li a {
+    padding: 20px;
+}
+
+.github-links > li a:hover {
+    text-decoration: none;
+    color: darkorange;
+    background-color: white;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .nav-left {
+        display: none;
+    }
+
+    .github-links {
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+    }
 }
