@@ -57,169 +57,175 @@
         <div class="content">
             <div class="recipe-area">
                 
-                <!--SEARCH BAR FOR DRINK RECIPES-->
-                <div class="drink-search">
-                    <input class="input-drink form-group col-sm-6 col-sm-offset-3 col-xs-12" type="text" name="input" placeholder="Enter Ingredient">
-                    <button class="submit-drink" id="submit-drink" type="button">Search Drinks</button>
-                </div>
+                <!--DRINKS-->
+                <div class="drink-container col-sm-6 col-xs-12">
+                    <!--SEARCH BAR FOR DRINK RECIPES-->
+                    <div class="drink-search">
+                        <input class="input-drink form-group col-sm-6 col-sm-offset-3 col-xs-12" type="text" name="input" placeholder="Enter Ingredient">
+                        <button class="submit-drink" id="submit-drink" type="button">Search Drinks</button>
+                    </div>
 
-                <!--SEARCH BAR FOR FOOD RECIPES-->
-                <div class="food-search">
-                    <input placeholder="Enter Ingredient" type="text" id='food-input'>
-                    <button class="submit-food" id="submit-food" type="button">Search Recipes</button>
-                </div>
+                    <!--DRINKS START-->
+                    <div class="expand-drink">
+                        <div class="expand-drink-body">
+                            <div class="container-fluid">
+                                <div class="drink-list">
+                                    <ul>
 
-                <!--DRINKS START-->
-                <div class="expand-drink">
-                    <div class="expand-drink-body">
-                        <div class="container-fluid">
-                            <div class="drink-list">
-                                <ul>
-
-                                </ul>
-                            </div>
-
-                            <div class="drink-ing">
-                                <h2></h2>
-                                <div class="photo-img"></div>
-                                <div class="ingred-sec">
-                                    <h3>Ingredients</h3>
-                                    <ul></ul>
+                                    </ul>
                                 </div>
-                                <div class="desc-sec">
-                                    <h3>Instructions</h3>
-                                    <p></p>
-                                </div>
-                                <div class="skill-sec">
-                                    <h3>Skill Level Recommended</h3>
-                                    <p></p>
-                                </div>
-                                <div class="story-sec">
-                                    <h3>Background Story</h3>
-                                    <p></p>
-                                </div>
-                                <div class="youtube-sec">
-                                    <h3>Video Tutorials Containing <span class="drinksSearchTerm"></span></h3>
-                                    <p>
-                                    <!--DRINK CAROUSEL START-->
-                                    <div class="carousel_container hidden" id="drinks-carousel">
-                                        <div class="carousel slide" id="youtube-carousel1" data-pause='hover' data-ride="carousel">
-                                            <!-- Indicators -->
-                                            <ol class="carousel-indicators">
-                                                <li data-target="#youtube-carousel1" data-slide-to="0" class="active"></li>
-                                                <li data-target="#youtube-carousel1" data-slide-to="1"></li>
-                                                <li data-target="#youtube-carousel1" data-slide-to="2"></li>
-                                                <li data-target="#youtube-carousel1" data-slide-to="3"></li>
-                                                <li data-target="#youtube-carousel1" data-slide-to="4"></li>
-                                            </ol>
 
-                                            <!-- Videos -->
-                                            <div class="carousel-inner">
-                                                <div class="item active drinks-item" id="drinks-video0" style="text-align: center">
-                                                    <!--youtube video will go here-->
+                                <div class="drink-ing">
+                                    <h2></h2>
+                                    <div class="photo-img"></div>
+                                    <div class="ingred-sec">
+                                        <h3>Ingredients</h3>
+                                        <ul></ul>
+                                    </div>
+                                    <div class="desc-sec">
+                                        <h3>Instructions</h3>
+                                        <p></p>
+                                    </div>
+                                    <div class="skill-sec">
+                                        <h3>Skill Level Recommended</h3>
+                                        <p></p>
+                                    </div>
+                                    <div class="story-sec">
+                                        <h3>Background Story</h3>
+                                        <p></p>
+                                    </div>
+                                    <div class="youtube-sec">
+                                        <h3>Video Tutorials Containing <span class="drinksSearchTerm"></span></h3>
+                                        <p>
+                                        <!--DRINK CAROUSEL START-->
+                                        <div class="carousel_container hidden" id="drinks-carousel">
+                                            <div class="carousel slide" id="youtube-carousel1" data-pause='hover' data-ride="carousel">
+                                                <!-- Indicators -->
+                                                <ol class="carousel-indicators">
+                                                    <li data-target="#youtube-carousel1" data-slide-to="0" class="active"></li>
+                                                    <li data-target="#youtube-carousel1" data-slide-to="1"></li>
+                                                    <li data-target="#youtube-carousel1" data-slide-to="2"></li>
+                                                    <li data-target="#youtube-carousel1" data-slide-to="3"></li>
+                                                    <li data-target="#youtube-carousel1" data-slide-to="4"></li>
+                                                </ol>
+
+                                                <!-- Videos -->
+                                                <div class="carousel-inner">
+                                                    <div class="item active drinks-item" id="drinks-video0" style="text-align: center">
+                                                        <!--youtube video will go here-->
+                                                    </div>
+
+                                                    <div class="item drinks-item" id="drinks-video1" style="text-align: center">
+                                                        <!--youtube video will go here-->
+                                                    </div>
+
+                                                    <div class="item drinks-item" id="drinks-video2" style="text-align: center">
+                                                        <!--youtube video will go here-->
+                                                    </div>
+                                                    <div class="item drinks-item" id="drinks-video3" style="text-align: center">
+                                                        <!--youtube video will go here-->
+                                                    </div>
+                                                    <div class="item drinks-item" id="drinks-video4" style="text-align: center">
+                                                        <!--youtube video will go here-->
+                                                    </div>
                                                 </div>
 
-                                                <div class="item drinks-item" id="drinks-video1" style="text-align: center">
-                                                    <!--youtube video will go here-->
-                                                </div>
-
-                                                <div class="item drinks-item" id="drinks-video2" style="text-align: center">
-                                                    <!--youtube video will go here-->
-                                                </div>
-                                                <div class="item drinks-item" id="drinks-video3" style="text-align: center">
-                                                    <!--youtube video will go here-->
-                                                </div>
-                                                <div class="item drinks-item" id="drinks-video4" style="text-align: center">
-                                                    <!--youtube video will go here-->
-                                                </div>
+                                                <!-- Left & Right Controls -->
+                                                <a class="left carousel-control" href="#youtube-carousel1" data-slide="prev">
+                                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="right carousel-control" href="#youtube-carousel1" data-slide="next">
+                                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
                                             </div>
-
-                                            <!-- Left & Right Controls -->
-                                            <a class="left carousel-control" href="#youtube-carousel1" data-slide="prev">
-                                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="right carousel-control" href="#youtube-carousel1" data-slide="next">
-                                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </div>
-                                    </div><!--DRINK CAROUSEL END-->
+                                        </div><!--DRINK CAROUSEL END-->
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div><!--DRINKS END-->
 
-                <!--PROSITH'S CODES-->
-                <div class="container-fluid">
-                    <div class="recipe-list">
-                        <div class="recipe-list rL1">
-                        </div>
-                        <div class="recipe-list rL2">
-                        </div>
+                <!--FOOD-->
+                <div class="food-container col-sm-6 col-xs-12">
+                    <!--SEARCH BAR FOR FOOD RECIPES-->
+                    <div class="food-search">
+                        <input placeholder="Enter Ingredient" type="text" id='food-input'>
+                        <button class="submit-food" id="submit-food" type="button">Search Recipes</button>
                     </div>
-                    <div class="recipe">
-                        <h2></h2>
-                        <div class="recipe-photo"></div>
-                        <div class="food-ingredients">
-                            <h3>Ingredients</h3>
-                            <ul></ul>
-                        </div>
-                        <div class="instructions">
-                            <h3>Instructions</h3>
-                            <p></p>
-                        </div>
-                        <div class="vid-tutorials">
-                            <h3>Video Tutorials Containing <span class="foodSearchTerm"></span></h3>
-                            <p>
-                            <!--FOOD CAROUSEL START-->
-                            <div class="carousel-container hidden" id="food-carousel">
-                                <div class="carousel slide" id="youtube-carousel2" data-pause='hover' data-ride="carousel">
-                                    <!-- Indicators -->
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#youtube-carousel2" data-slide-to="0" class="active"></li>
-                                        <li data-target="#youtube-carousel2" data-slide-to="1"></li>
-                                        <li data-target="#youtube-carousel2" data-slide-to="2"></li>
-                                        <li data-target="#youtube-carousel2" data-slide-to="3"></li>
-                                        <li data-target="#youtube-carousel2" data-slide-to="4"></li>
-                                    </ol>
 
-                                    <!-- Videos -->
-                                    <div class="carousel-inner">
-                                        <div class="item active food-item" id="food-video0" style="text-align: center">
-                                            <!--youtube video will go here-->
-                                        </div>
-
-                                        <div class="item food-item" id="food-video1" style="text-align: center">
-                                            <!--youtube video will go here-->
-                                        </div>
-
-                                        <div class="item food-item" id="food-video2" style="text-align: center">
-                                            <!--youtube video will go here-->
-                                        </div>
-                                        <div class="item food-item" id="food-video3" style="text-align: center">
-                                            <!--youtube video will go here-->
-                                        </div>
-                                        <div class="item food-item" id="food-video4" style="text-align: center">
-                                            <!--youtube video will go here-->
-                                        </div>
-                                    </div>
-
-                                    <!-- Left & Right Controls -->
-                                    <a class="left carousel-control" href="#youtube-carousel2" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="right carousel-control" href="#youtube-carousel2" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
+                    <!--FOOD START-->
+                    <div class="container-fluid">
+                        <div class="recipe-list">
+                            <div class="recipe-list rL1">
                             </div>
-                        </div><!--FOOD CAROUSEL END-->
+                            <div class="recipe-list rL2">
+                            </div>
+                        </div>
+                        <div class="recipe">
+                            <h2></h2>
+                            <div class="recipe-photo"></div>
+                            <div class="food-ingredients">
+                                <h3>Ingredients</h3>
+                                <ul></ul>
+                            </div>
+                            <div class="instructions">
+                                <h3>Instructions</h3>
+                                <p></p>
+                            </div>
+                            <div class="vid-tutorials">
+                                <h3>Video Tutorials Containing <span class="foodSearchTerm"></span></h3>
+                                <p>
+                                <!--FOOD CAROUSEL START-->
+                                <div class="carousel-container hidden" id="food-carousel">
+                                    <div class="carousel slide" id="youtube-carousel2" data-pause='hover' data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#youtube-carousel2" data-slide-to="0" class="active"></li>
+                                            <li data-target="#youtube-carousel2" data-slide-to="1"></li>
+                                            <li data-target="#youtube-carousel2" data-slide-to="2"></li>
+                                            <li data-target="#youtube-carousel2" data-slide-to="3"></li>
+                                            <li data-target="#youtube-carousel2" data-slide-to="4"></li>
+                                        </ol>
+
+                                        <!-- Videos -->
+                                        <div class="carousel-inner">
+                                            <div class="item active food-item" id="food-video0" style="text-align: center">
+                                                <!--youtube video will go here-->
+                                            </div>
+
+                                            <div class="item food-item" id="food-video1" style="text-align: center">
+                                                <!--youtube video will go here-->
+                                            </div>
+
+                                            <div class="item food-item" id="food-video2" style="text-align: center">
+                                                <!--youtube video will go here-->
+                                            </div>
+                                            <div class="item food-item" id="food-video3" style="text-align: center">
+                                                <!--youtube video will go here-->
+                                            </div>
+                                            <div class="item food-item" id="food-video4" style="text-align: center">
+                                                <!--youtube video will go here-->
+                                            </div>
+                                        </div>
+
+                                        <!-- Left & Right Controls -->
+                                        <a class="left carousel-control" href="#youtube-carousel2" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#youtube-carousel2" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!--FOOD CAROUSEL END-->
+                        </div>
                     </div>
-                </div>
+                </div><!--FOOD END-->
                 
                 <!-- <nav aria-label="...">
                     <ul class="pager">
@@ -247,8 +253,8 @@
         <!--FOOTER START-->
         <div class="footer container">
             <div>
-                <h3 class="col-sm-2 col-xs-12">Github<img src="images/github-10-xxl.png" id="git-logo"></h3>
-                <ul class="col-sm-8 col-xs-12 github-links">
+                <h3 class="col-sm-3 col-xs-12">Github<img src="images/github-10-xxl.png" id="git-logo"></h3>
+                <ul class="col-sm-9 col-xs-12 github-links">
                     <li><a href="https://github.com/kryseno">Krystal</a></li>
                     <li><a href="https://github.com/oowretep">Peter</a></li>
                     <li><a href="https://github.com/pk316">Prosith</a></li>
