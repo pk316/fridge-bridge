@@ -16,12 +16,11 @@ function initializeApp() {
  */
 function add_vids_to_carousel() {
     console.log('click initiated');
-    console.log(this);
     if ($(this).attr('id') === 'submit-drink') {
         $(".drinks-item").empty();
         var drinkSearchTerm = $('.input-drink').val() + '';
         $('.drinks-search-term').text("'" + drinkSearchTerm + "'");
-        console.log(drinkSearchTerm);
+        console.log('searching for: ', drinkSearchTerm);
         var drinkDataObject = {
             q: drinkSearchTerm + ' alcohol drink recipe tutorial',
             maxResults: 5

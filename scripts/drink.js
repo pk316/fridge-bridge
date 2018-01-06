@@ -165,7 +165,7 @@ function getDrinkList() {
                     var drinkList = data.result[i].id;
                     renderDrink(drinkList);
                 }
-                console.log('server response: ', data.result);
+                console.log('server response FROM ABSOLUT: ', data.result);
             }
         },
         error: function(data) {
@@ -314,7 +314,7 @@ function searchCocktailDB() {
                     var drinkList = data.drinks[i].strDrink;
                     renderDrinkCocktail(drinkList);
                 }
-                console.log('server response: ', data.drinks);
+                console.log('server response FROM COCKTAILDB: ', data.drinks);
             }
         },
         error: errorMessageCocktail
