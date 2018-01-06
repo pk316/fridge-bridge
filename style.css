@@ -87,25 +87,23 @@ li > a {
     height: 700px;
     width: 90vw;
     border: 1px solid lightgrey;
-    display: flex;
-    overflow: scroll;
+    overflow: auto;
     background-color: papayawhip;
 }
 
-/* .drink-search, .food-search {
+.drink-container, .food-container {
+    border: 1px solid black;
     height: 100%;
-    width: 50%;
-    margin: auto;
-    display: block;
-} */
-
-
-
-#fridge-logo {
-    height: 8vh;
-    width: auto;
-    margin: 7px 20px 20px 30px;
 }
+
+.drink-container > h3, .drink-container > form, .food-container > h3, .food-container > form {
+    text-align: center;
+}
+
+
+
+
+
 
 
 .content {
@@ -184,26 +182,6 @@ li > a {
 
 .drink-list, .drink-ing {
     font-family: 'Quicksand', sans-serif;
-}
-
-#expand-drink {
-    border: 1px solid darkorange;
-}
-#expand-drink-body{
-    height: 15px;
-    overflow: hidden;
-    transition:         height 500ms ease;
-    -moz-transition:    height 500ms ease;
-    -ms-transition:     height 500ms ease;
-    -o-transition:      height 500ms ease;
-    -webkit-transition: height 500ms ease;
-}
-.expanded {
-    height: 550px !important;
-}
-#more {
-    cursor: pointer;
-    text-align: right;
 }
 
 .recipe-list {

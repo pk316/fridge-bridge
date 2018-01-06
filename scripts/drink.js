@@ -137,7 +137,7 @@ function errorMessageAbsolutData(data) {
  * getDrinkList
  * @params {undefined}
  * @returns  {undefined}
- * searches absolut data base and receives list of drinks containing ingredient user searched for
+ * searches absolut drink data base and receives list of drinks containing ingredient user searched for
  */
 function getDrinkList() {
     $('.drink-list li').remove();
