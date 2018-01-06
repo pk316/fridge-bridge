@@ -93,7 +93,7 @@ li > a {
 
 .drink-container, .food-container {
     border: 1px solid black;
-    height: 100%;
+    height: auto;
 }
 
 .drink-container > h3, .drink-container > form, .food-container > h3, .food-container > form {
