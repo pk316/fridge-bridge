@@ -1,5 +1,5 @@
 body {
-    background-color: darkorange;
+    background-color: lightsalmon;
 }
 
 ul > li {
@@ -16,12 +16,13 @@ li > a {
     font-family: 'Bungee', cursive;
 }
 
-.mb5 {
-    margin-bottom: 5px;
+.custom-nav {
+    margin-bottom: 1px;
+    background-color: lightsalmon;
 }
 
 .nav-left > img {
-    height: 5vh;
+    height: 50px;
 }
 
 .nav-left > p {
@@ -32,7 +33,7 @@ li > a {
 }
 
 .dropdown-menu {
-    background-color: darkorange;
+    background-color: lightsalmon;
 }
 
 .dropdown-menu > li {
@@ -42,7 +43,7 @@ li > a {
 .nav > li > a:focus, .nav > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
     text-decoration: none;
     background-color: white;
-    color: darkorange;
+    color: lightsalmon;
 }
 
 #main-nav {
@@ -79,7 +80,7 @@ li > a {
 }
 
 .welcome > h1 b {
-    color: darkorange;
+    color: lightsalmon;
 }
 
 /* MAIN CONTENT */
@@ -127,7 +128,7 @@ li > a {
 .carousel-container {
     width: 60%;
     margin: auto;
-    border: 6px solid darkorange;
+    border: 6px solid lightsalmon;
     border-radius: 10px;
 }
 .carousel-container .hidden{
@@ -137,7 +138,7 @@ li > a {
     width: 5%;
 }
 .carousel-inner {
-    background-color: darkorange;
+    background-color: lightsalmon;
 }
 
 .drink-list {
@@ -172,12 +173,12 @@ li > a {
 
 .carousel-container {
     margin: auto;
-    border: 6px solid darkorange;
+    border: 6px solid lightsalmon;
     border-radius: 10px;
 }
 
 #video0 {
-    background-color: darkorange;
+    background-color: lightsalmon;
 }
 
 .drink-list, .drink-ing {
@@ -225,7 +226,7 @@ li > a {
 
 .github-links > li a:hover {
     text-decoration: none;
-    color: darkorange;
+    color: lightsalmon;
     background-color: white;
 }
 

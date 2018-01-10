@@ -20,7 +20,7 @@
 
     <body>
         <!--NAVIGATION MENU START-->
-        <nav class="navbar mb5">
+        <nav class="navbar custom-nav container-fluid navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle nav-toggle" data-toggle="collapse" data-target="#mainNav">
@@ -49,7 +49,7 @@
             </div>
         </nav> <!--NAVIGATION MENU END-->
 
-        <div class="jumbotron welcome">
+        <div class="jumbotron welcome" id="home">
             <h1><b>Bridging</b> the gap between <b>hungry</b> and <b>happy</b></h1>
         </div>
 
@@ -238,6 +238,28 @@
             </div>
         </div><!--MAIN CONTENT-->
 
+        <div class="container" id="about">
+            <h3>About</h3>
+            <p>Fridge Bridge helps you find recipes to make with the ingredients you have. Search for the main ingredient you wish to use and choose from the list of recipes found with desired ingredient.</p>
+            <br>
+            <p>API's include:</p>
+            <ul>
+                <li>CocktailDB - For all drinks</li>
+                <li>Yummly - For all food</li>
+                <li>Youtube - For related videos</li>
+            </ul>
+        </div>
+
+        <div class="container" id="contact">
+            <h3 class="col-sm-3 col-xs-12">Github<img src="images/github-10-xxl.png" id="git-logo"></h3>
+            <ul class="col-sm-9 col-xs-12 github-links">
+                <li><a href="https://github.com/kryseno">Krystal</a></li>
+                <li><a href="https://github.com/oowretep">Peter</a></li>
+                <li><a href="https://github.com/pk316">Prosith</a></li>
+                <!-- <li><a href="https://github.com/csinocruz">Francesca</a></li> -->
+            </ul>
+        </div>
+
         <!-- error modal -->
         <div id="error-modal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -252,18 +274,6 @@
                 </div>
             </div>
         </div>
-
-        <!--FOOTER START-->
-        <div class="footer container">
-            <div>
-                <h3 class="col-sm-3 col-xs-12">Github<img src="images/github-10-xxl.png" id="git-logo"></h3>
-                <ul class="col-sm-9 col-xs-12 github-links">
-                    <li><a href="https://github.com/kryseno">Krystal</a></li>
-                    <li><a href="https://github.com/oowretep">Peter</a></li>
-                    <li><a href="https://github.com/pk316">Prosith</a></li>
-                    <!-- <li><a href="https://github.com/csinocruz">Francesca</a></li> -->
-                </ul>
-            </div>
-        </div><!--FOOTER END-->
+        
     </body>
 </html>
