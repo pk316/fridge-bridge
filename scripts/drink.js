@@ -16,8 +16,9 @@ function initializeApp() {
  */
 function addClickHandlers() {
     $('.submit-drink').click(searchDB);
-    $('.input-drink').keyup(function(event){
+    $('.input-drink').keydown(function(event){
         if (event.keyCode === 13){
+            event.preventDefault();
             console.log('enter was pressed');
             $('.submit-drink').click();
         }
