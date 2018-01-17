@@ -88,13 +88,13 @@ li > a {
     height: 700px;
     width: 90vw;
     border: 1px solid lightgrey;
-    overflow: auto;
     background-color: papayawhip;
 }
 
 .drink-container, .food-container {
     border: 1px solid black;
-    height: auto;
+    height: inherit;
+    overflow: auto;
 }
 
 .drink-container > h3, .drink-container > form, .food-container > h3, .food-container > form {
