@@ -20,6 +20,13 @@ function addClickHandler(){
     $('#submit-food').click(function () {
         getRecipe();
     })
+    $('#food-input').keydown(function(event){
+        if (event.keyCode === 13){
+            event.preventDefault();
+            console.log('enter was pressed');
+            $('#submit-food').click();
+        }
+    });
     searchAgain();
     backToResult();
 }
