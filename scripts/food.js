@@ -6,7 +6,7 @@
 
 $(document).ready(initializeApp)
 
-function initializeApp(){
+function initializeApp() {
     addClickHandler();
 
 }
@@ -16,12 +16,12 @@ function initializeApp(){
  * @returns  {undefined}
  *
  */
-function addClickHandler(){
+function addClickHandler() {
     $('#submit-food').click(function () {
         getRecipe();
     })
-    $('#food-input').keydown(function(event){
-        if (event.keyCode === 13){
+    $('#food-input').keydown(function (event) {
+        if (event.keyCode === 13) {
             event.preventDefault();
             console.log('enter was pressed');
             $('#submit-food').click();
@@ -37,7 +37,7 @@ function addClickHandler(){
  * resets search bar and clears all list values
  */
 function searchAgain() {
-    $('.search-again').click(function() {
+    $('.search-again').click(function () {
         console.log('search again was pressed');
         $('.recipe-list').css('display', 'none');
         $('.recipe div p').text('');
@@ -54,7 +54,7 @@ function searchAgain() {
 function backToResult() {
     var recipe = $('.recipe');
     var recipeList = $('.recipe-list');
-    $('.backToList').click(function() {
+    $('.backToList').click(function () {
         if (recipe.css('display') !== 'none' && recipeList.css('display') === 'none') {
             $('.recipe').css('display', 'none');
             $('.recipe-list').show();
@@ -75,7 +75,7 @@ function getRecipe() {
     console.log(ingredient);
     $.ajax({
         dataType: 'JSON',
-        url: 'http://api.yummly.com/v1/api/recipes?',
+        url: 'https://api.yummly.com/v1/api/recipes?',
         method: 'GET',
         data: {
             '_app_id': 'd3634cd9',
@@ -83,27 +83,13 @@ function getRecipe() {
             'q': ingredient.recipe,
         },
         success: function (result) {
-            var recipeObj ={};
-            var recipeUrlArray = [];
-            var counter = result.matches.length
+            var recipeObj = {};
+
             console.log(result.matches);
             for (var i = 0; i < result.matches.length; i++) {
-                recipeObj = result.matches;
-                var recipeId = recipeObj[i].id;
-                $.ajax({
-                    url: 'http://api.yummly.com/v1/api/recipe/' + recipeId + '?_app_id=fffebcbc&_app_key=34aa6c71c566decd872142c93f381916',
-                    dataType: 'JSON',
-                    method: 'GET',
-                    success: function (data) {
-                        console.log('second ajax', data.source);
-                        var recipeUrl = data.source.sourceRecipeUrl;
-                        recipeUrlArray.push(recipeUrl);
-                        counter--;
-                        if (counter === 0 ){
-                            allCallsDone(recipeObj, recipeUrlArray);
-                        }
-                    }
-                })
+
+                recipeObj = result.matches[i];
+                renderRecipe(recipeObj, i);
             }
         },
         error: function (err) {
@@ -112,68 +98,74 @@ function getRecipe() {
     })
 }
 /***************************************************************************************************
- * allCallsDone - all Ajax calls are complete, call next function
- * @params {recipeObj, recipeUrlArray}
+ * renderRecipe
+ * @params {recipeObj}
  * @returns  {undefined}
  *
  */
-function allCallsDone(recipeObj, recipeUrlArray){
-    console.log('all calls are complete');
-    renderRecipe(recipeObj, recipeUrlArray);
+function renderRecipe(recipeObj, i) {
+    $('.recipeList').show();
+    console.log('render');
+    var recipeId = recipeObj.recipeName;
+    if (i < 5) {
+        var imageOfDish = $('<img>').attr('src', recipeObj.imageUrlsBySize["90"]).click(function () {
+            getInstructionUrl(recipeObj);
+        });
+        var imageDiv = $('<div>', {
+            css: {
+                cursor: 'pointer'
+            }
+        }).append($(imageOfDish)).append($('<p>').text(recipeId + ' by ' + recipeObj.sourceDisplayName));
+        $('.rL1').append(imageDiv);
+    } else {
+        var imageOfDish = $('<img>').attr('src', recipeObj.imageUrlsBySize["90"]).click(function () {
+            getInstructionUrl(recipeObj);
+        });
+        var imageDiv = $('<div>', {
+            css: {
+                cursor: 'pointer'
+            }
+        }).append($(imageOfDish)).append($('<p>').text(recipeId + ' by ' + recipeObj.sourceDisplayName));
+        $('.rL2').append(imageDiv);
+    }
 }
 /***************************************************************************************************
- * renderRecipe
- * @params {recipeObj, recipeUrlArray}
+ * ajax call to get recipe instructions using recipe id from getRecipe ajax call
+ * @params {recipeObj}
  * @returns  {undefined}
  *
  */
-function renderRecipe(recipeObj, recipeUrlArray){
-   var ingredientObj = {};
-    $('.recipe-list').show();
-    console.log('render');
-    for ( i in recipeObj){
-            var recipeArrayItem = recipeObj[i].id.split('-');
-            var recipeArray = recipeArrayItem.splice(0,recipeArrayItem.length-1);
-            var recipeId = recipeArray.join(' ');
-            var ingredients = recipeObj[i].ingredients;
-            ingredientObj[i] = ingredients;
-                if ( i < 5){
-                    var imageOfDish = $('<img>').attr('src',recipeObj[i].imageUrlsBySize["90"]).click(function(){
-                        renderIngredients(recipeObj, ingredientObj, recipeUrlArray);
-                    });
-                    var imageDiv = $('<div>').append($(imageOfDish)).append($('<p>').text(recipeId + ' by ' + recipeObj[i].sourceDisplayName));
-                    $('.rL1').append(imageDiv);
-                } else{
-                    var imageOfDish = $('<img>').attr('src',recipeObj[i].imageUrlsBySize["90"]).click(function(){
-                        renderIngredients(recipeObj, ingredientObj, recipeUrlArray);
-                    });
-                    var imageDiv = $('<div>').append($(imageOfDish)).append($('<p>').text(recipeId + ' by ' + recipeObj[i].sourceDisplayName));
-                    $('.rL2').append(imageDiv);
-                }
-    }
-
+function getInstructionUrl(recipeObj) {
+    $.ajax({
+        url: 'http://api.yummly.com/v1/api/recipe/' + recipeObj.id + '?_app_id=fffebcbc&_app_key=34aa6c71c566decd872142c93f381916',
+        dataType: 'JSON',
+        method: 'GET',
+        success: function (data) {
+            console.log('second ajax', data.source);
+            var recipeUrl = data.source.sourceRecipeUrl;
+            renderIngredients(recipeObj, recipeUrl);
+        }
+    })
 }
 /***************************************************************************************************
  * renderIngredients
- * @params {recipeObj, ingredientObj, recipeUrlArray}
+ * @params {recipeObj, recipeUrl}
  * @returns  {undefined}
  *
  */
-function renderIngredients( recipeObj, ingredientObj, recipeUrlArray) {
+function renderIngredients(recipeObj, recipeUrl) {
     $('.recipe').show();
     $('.recipe-list').hide();
-
-    var recipeArrayItem = recipeObj[i].id.split('-');
-    var recipeArray = recipeArrayItem.splice(0,recipeArrayItem.length-1);
-    var recipeId = recipeArray.join(' ');
-
-        var title = $('<p>').text(recipeId+ ' by ' + recipeObj[i].sourceDisplayName);
-        $('.recipe h2').append(title);
-        var imageOfDish = $('<img>').attr('src',recipeObj[i].imageUrlsBySize["90"]);
-        var imageDiv = $('<div>').append($(imageOfDish));
-        $('.recipe-photo').append(imageDiv);
-        var instructions = $('<a>').attr('href',recipeUrlArray[i]).text(recipeUrlArray[i]);
-        $('.recipe .instructions p').append(instructions);
-        var ingredientList = $('<p>').text(ingredientObj[i]);
-        $('.recipe .food-ingredients').append(ingredientList);
+    var title = $('<p>').text(recipeObj.recipeName + ' by ' + recipeObj.sourceDisplayName);
+    $('.recipe h2').append(title);
+    var imageOfDish = $('<img>').attr('src', recipeObj.imageUrlsBySize["90"]);
+    var imageDiv = $('<div>').append($(imageOfDish));
+    $('.recipe-photo').append(imageDiv);
+    var instructions = $('<a>').attr({
+        href: recipeUrl,
+        target: '_blank'
+    }).text(recipeUrl);
+    $('.recipe .instructions').append(instructions);
+    var ingredientList = $('<p>').text(recipeObj.ingredients);
+    $('.recipe .food-ingredients').append(ingredientList);
 }
