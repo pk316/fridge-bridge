@@ -214,6 +214,7 @@ function renderCocktailInfo(array) {
     $('.drink-ing').show();
     $('.photo-img').css('background-image', 'url(' + array[3] + ')');
     if (typeof(array[0]) === 'object') {
+        $('.ingred-sec > ul').empty();
         var ingredients = array[0];
         for (var j = 0; j < ingredients.length; j++) {
             var ingredientList = $('<li>', {
@@ -224,14 +225,4 @@ function renderCocktailInfo(array) {
     }
     $('.desc-sec p').text(array[1]);
     $('.drink-ing > h2').text(array[2]);
-    if (array[4] === undefined) {
-        $('.skill-sec p').text('No data available');
-    } else {
-        $('.skill-sec p').text(array[4]);
-    }
-    if (array[5] === undefined) {
-        $('.story-sec p').text('No data available');
-    } else {
-        $('.story-sec p').text(array[5]);
-    }
 }
