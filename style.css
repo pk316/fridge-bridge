@@ -11,9 +11,7 @@ li>a {
     color: white;
 }
 
-
 /* NAVBAR */
-
 .navbar {
     font-family: 'Bungee', cursive;
 }
@@ -65,9 +63,7 @@ li>a {
     margin: 1px 10px;
 }
 
-
 /* WELCOME */
-
 .welcome {
     height: 40vh;
     width: 100%;
@@ -90,14 +86,11 @@ li>a {
     color: lightsalmon;
 }
 
-
 /* MAIN CONTENT */
-
 .drink-container,
 .food-container {
-    height: auto;
+    height: 200px;
     background-color: papayawhip;
-    height: 55vh
 }
 
 .drink-search,
@@ -105,11 +98,9 @@ li>a {
     text-align: center;
 }
 
-.content {
-    display: flex;
-    justify-content: space-around;
-    margin: auto;
-}
+
+
+
 
 .student-logos {
     text-align: center;
@@ -198,10 +189,7 @@ li>a {
 
 
 /* MODAL */
-
-
 /* contact modal */
-
 #about-modal .modal-content,
 #contact-modal .modal-content {
     color: white;
@@ -237,19 +225,25 @@ li>a {
 
 
 /* RESPONSIVE */
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .welcome>h1 {
         font-size: 2em;
         top: 10%;
         position: relative;
     }
+
     .nav-left {
         display: none;
     }
+
     .github-links {
         margin: auto;
         display: flex;
         justify-content: space-around;
+    }
+
+    .drink-search form > button,
+    .food-search form > button {
+        margin-top: 2%;
     }
 }

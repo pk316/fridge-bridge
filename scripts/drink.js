@@ -23,38 +23,22 @@ function addClickHandlers() {
             $('.submit-drink').click();
         }
     });
-    searchAgain();
-    backToResult();
+    $('.back-drink').click(backToListDrink);
 }
 /***************************************************************************************************
- * searchAgain
- * @params {undefined}
- * @returns  {undefined}
- * resets search bar and clears all list values
- */
-function searchAgain() {
-    $('.search-again').addClass('mouse-hover').click(function() {
-        $('.drink-list').css('display', 'none');
-        $('.drink-ing div p').text('');
-        $('.drink-ing').css('display', 'none');
-        $('.input-drink').val('');
-    })
-}
-/***************************************************************************************************
- * backToResult
+ * backToListDrink
  * @params {undefined}
  * @returns  {undefined}
  * after user clicks on drink name and data comes up, clicking back to list will move the page back to drink list
  */
-function backToResult() {
+function backToListDrink() {
+    $('.back-drink').addClass('disabled');
     var drinkIng = $('.drink-ing');
     var drinkList = $('.drink-list');
-    $('.back-to-list').addClass('mouse-hover').click(function() {
-        if (drinkIng.css('display') !== 'none' && drinkList.css('display') === 'none') {
-            $('.drink-ing').css('display', 'none');
-            $('.drink-list').show();
-        }
-    });
+    if (drinkIng.css('display') !== 'none' && drinkList.css('display') === 'none') {
+        $('.drink-ing').css('display', 'none');
+        $('.drink-list').show();
+    }
 }
 /***************************************************************************************************
  * searchDB
@@ -107,25 +91,29 @@ function errorMessage(data) {
  */
 function searchCocktail() {
     var inputText = $('.input-drink').val();
-    $.ajax({
-        dataType: 'text',
-        url: 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + inputText,
-        method: 'get',
-        success: function(data) {
-            var data = JSON.parse(data);
-            if (data.drinks.length !== 0) {
-                $('.drink-list > ul').empty();
-                for (var i = 0; i < data.drinks.length; i++) {
-                    var drinkList = data.drinks[i].strDrink;
-                    renderDrinkList(drinkList);
+    if (inputText !== '') {
+        $.ajax({
+            dataType: 'text',
+            url: 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + inputText,
+            method: 'get',
+            success: function(data) {
+                var allDrinks = JSON.parse(data);
+                if (allDrinks.drinks.length !== 0) {
+                    $('.drink-list > ul').empty();
+                    for (var i = 0; i < allDrinks.drinks.length; i++) {
+                        var drinkList = allDrinks.drinks[i].strDrink;
+                        renderDrinkList(drinkList);
+                    }
+                    console.log('server response FROM COCKTAILDB: ', data.drinks);
+                } else if (data.drinks === 0) {
+                    displyErrorMessage('No drinks are found with ' + inputText + '. Try "Vodka", "Rum", "Mango"');
                 }
-                console.log('server response FROM COCKTAILDB: ', data.drinks);
-            } else if (data.drinks === 0) {
-                displyErrorMessage('No drinks are found with ' + inputText + '. Try "Vodka", "Rum", "Mango"');
-            }
-        },
-        error: errorMessage
-    })
+            },
+            error: errorMessage
+        })
+    } else {
+        displayErrorMessage('Please enter an ingredient before searching');
+    }
 }
 /***************************************************************************************************
  * renderDrinkList
@@ -210,10 +198,12 @@ function getDataCocktail() {
  * after drink is selected and info is passed along, renders drink info in appropriate divs
  */
 function renderCocktailInfo(array) {
+    $('.back-drink').removeClass('disabled');
     $('.drink-list').css('display', 'none');
     $('.drink-ing').show();
     $('.photo-img').css('background-image', 'url(' + array[3] + ')');
     if (typeof(array[0]) === 'object') {
+        $('.ingred-sec > ul').empty();
         var ingredients = array[0];
         for (var j = 0; j < ingredients.length; j++) {
             var ingredientList = $('<li>', {
@@ -224,14 +214,4 @@ function renderCocktailInfo(array) {
     }
     $('.desc-sec p').text(array[1]);
     $('.drink-ing > h2').text(array[2]);
-    if (array[4] === undefined) {
-        $('.skill-sec p').text('No data available');
-    } else {
-        $('.skill-sec p').text(array[4]);
-    }
-    if (array[5] === undefined) {
-        $('.story-sec p').text('No data available');
-    } else {
-        $('.story-sec p').text(array[5]);
-    }
 }
