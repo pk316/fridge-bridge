@@ -2,16 +2,18 @@ body {
     background-color: lightsalmon;
 }
 
-ul > li {
+ul>li {
     list-style-type: none;
 }
 
-li > a {
+li>a {
     text-decoration: none;
     color: white;
 }
 
+
 /* NAVBAR */
+
 .navbar {
     font-family: 'Bungee', cursive;
 }
@@ -21,11 +23,11 @@ li > a {
     background-color: lightsalmon;
 }
 
-.nav-left > img {
+.nav-left>img {
     height: 50px;
 }
 
-.nav-left > p {
+.nav-left>p {
     display: inline;
     color: white;
     padding-left: 15px;
@@ -36,11 +38,14 @@ li > a {
     background-color: lightsalmon;
 }
 
-.dropdown-menu > li {
+.dropdown-menu>li {
     text-align: center;
 }
 
-.nav > li > a:focus, .nav > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+.nav>li>a:focus,
+.nav>li>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
     text-decoration: none;
     background-color: white;
     color: lightsalmon;
@@ -60,9 +65,11 @@ li > a {
     margin: 1px 10px;
 }
 
+
 /* WELCOME */
+
 .welcome {
-    height: 50vh;
+    height: 40vh;
     width: 100%;
     background-image: url("images/culinary.jpg");
     background-repeat: no-repeat;
@@ -71,7 +78,7 @@ li > a {
     display: flex;
 }
 
-.welcome > h1 {
+.welcome>h1 {
     color: white;
     margin: auto;
     text-shadow: -1px -3px 13px black;
@@ -79,33 +86,24 @@ li > a {
     text-align: center;
 }
 
-.welcome > h1 b {
+.welcome>h1 b {
     color: lightsalmon;
 }
 
+
 /* MAIN CONTENT */
-.recipe-area {
-    height: 700px;
-    width: 90vw;
-    border: 1px solid lightgrey;
+
+.drink-container,
+.food-container {
+    height: auto;
     background-color: papayawhip;
+    height: 55vh
 }
 
-.drink-container, .food-container {
-    border: 1px solid black;
-    height: inherit;
-    overflow: auto;
-}
-
-.drink-container > h3, .drink-container > form, .food-container > h3, .food-container > form {
+.drink-search,
+.food-search {
     text-align: center;
 }
-
-
-
-
-
-
 
 .content {
     display: flex;
@@ -131,12 +129,15 @@ li > a {
     border: 6px solid lightsalmon;
     border-radius: 10px;
 }
-.carousel-container .hidden{
+
+.carousel-container .hidden {
     display: none;
 }
+
 .carousel-control {
     width: 5%;
 }
+
 .carousel-inner {
     background-color: lightsalmon;
 }
@@ -151,7 +152,7 @@ li > a {
 
 .drink-list li {
     display: table;
-    margin:auto;
+    margin: auto;
 }
 
 .drink-list ul {
@@ -181,7 +182,8 @@ li > a {
     background-color: lightsalmon;
 }
 
-.drink-list, .drink-ing {
+.drink-list,
+.drink-ing {
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -189,53 +191,62 @@ li > a {
     display: none;
     display: inline-block;
 }
-.recipe{
+
+.recipe {
     display: none;
 }
 
 
+/* MODAL */
 
 
+/* contact modal */
 
-/* FOOTER */
-.footer {
-    font-family: 'Bungee', cursive;
-    height: 10vh;
+#about-modal .modal-content,
+#contact-modal .modal-content {
     color: white;
+    background-color: lightsalmon;
 }
 
-#git-logo {
-    height: 5vh;
-}
-
+#contact-modal .modal-body>h3,
 .github-links {
-    margin-top: 40px;
-}
-
-.footer h3 {
     text-align: center;
 }
 
-.github-links > li {
+#git-logo {
+    height: 4.5vh;
+}
+
+.github-links {
+    padding: 0;
+}
+
+.github-links>li {
     display: inline;
 }
 
-.github-links > li a {
-    padding: 20px;
+.github-links>li a {
+    padding: 10px 20px;
 }
 
-.github-links > li a:hover {
+.github-links>li a:hover {
     text-decoration: none;
     color: lightsalmon;
     background-color: white;
 }
 
+
 /* RESPONSIVE */
+
 @media screen and (max-width: 768px) {
+    .welcome>h1 {
+        font-size: 2em;
+        top: 10%;
+        position: relative;
+    }
     .nav-left {
         display: none;
     }
-
     .github-links {
         margin: auto;
         display: flex;

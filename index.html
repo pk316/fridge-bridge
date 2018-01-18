@@ -1,279 +1,304 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Fridge Bridge</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link href="https://fonts.googleapis.com/css?family=Bungee|Slabo+27px|Quicksand" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bungee|Slabo+27px" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<head>
+    <title>Fridge Bridge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="scripts/food.js" type="text/javascript"></script>
-        <script src="scripts/main.js" type="text/javascript"></script>
-        <script src="scripts/youtube.js" type="text/javascript"></script>
-        <script src="scripts/drink.js" type="text/javascript"></script>
-    </head>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Slabo+27px|Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Slabo+27px" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <body>
-        <!--NAVIGATION MENU START-->
-        <nav class="navbar custom-nav container-fluid navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle nav-toggle" data-toggle="collapse" data-target="#mainNav">
-                            <img class="mobile-nav" src="images/fb_logo_white.png">
-                    </button>
-                    <div class="nav-left">
-                        <img src="images/white_fridge.png">
-                        <p>Fridge Bridge</p>
-                    </div>
-                </div>
-                <div class="collapse navbar-collapse navbar-right" id="mainNav">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Drop Down<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Page 1-1</a></li>
-                                <li><a href="#">Page 1-2</a></li>
-                                <li><a href="#">Page 1-3</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="scripts/food.js" type="text/javascript"></script>
+    <script src="scripts/main.js" type="text/javascript"></script>
+    <script src="scripts/youtube.js" type="text/javascript"></script>
+    <script src="scripts/drink.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <!--NAVIGATION MENU START-->
+    <nav class="navbar custom-nav container-fluid navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle nav-toggle" data-toggle="collapse" data-target="#mainNav">
+                <img class="mobile-nav" src="images/fb_logo_white.png">
+            </button>
+            <div class="nav-left">
+                <img src="images/white_fridge.png">
+                <p>Fridge Bridge</p>
             </div>
-        </nav> <!--NAVIGATION MENU END-->
-
-        <div class="jumbotron welcome" id="home">
-            <h1><b>Bridging</b> the gap between <b>hungry</b> and <b>happy</b></h1>
         </div>
-
-        <!--MAIN CONTENT-->
-        <div class="content">
-            <div class="recipe-area">
-                
-                <!--DRINKS-->
-                <div class="drink-container col-sm-6 col-xs-12">
-                    <h3 class="drink-header col-sm-12">Drink Recipes</h3>
-                    <!--SEARCH BAR FOR DRINK RECIPES-->
-                    <form class="form-inline col-sm-12">
-                        <div class="drink-search form-group">
-                            <input class="input-drink form-control" type="text" name="input" placeholder="Enter Ingredient">
-                            <button class="submit-drink btn btn-danger" id="submit-drink" type="button">Search Drinks</button>
-                        </div>
-                    </form>
-
-                    <!--DRINKS START-->
-                    <div class="container-fluid">
-                        <div class="drink-list">
-                            <ul>
-
-                            </ul>
-                        </div>
-
-                        <div class="drink-ing">
-                            <h2></h2>
-                            <div class="photo-img"></div>
-                            <div class="ingred-sec">
-                                <h3>Ingredients</h3>
-                                <ul></ul>
-                            </div>
-                            <div class="desc-sec">
-                                <h3>Instructions</h3>
-                                <p></p>
-                            </div>
-                            <div class="skill-sec">
-                                <h3>Skill Level Recommended</h3>
-                                <p></p>
-                            </div>
-                            <div class="story-sec">
-                                <h3>Background Story</h3>
-                                <p></p>
-                            </div>
-                            <div class="youtube-sec">
-                                <h3>Video Tutorials Containing <span class="drinks-search-term"></span></h3>
-                                <p>
-                                <!--DRINK CAROUSEL START-->
-                                <div class="carousel_container hidden" id="drinks-carousel">
-                                    <div class="carousel slide" id="youtube-carousel1" data-pause='hover' data-ride="carousel">
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#youtube-carousel1" data-slide-to="0" class="active"></li>
-                                            <li data-target="#youtube-carousel1" data-slide-to="1"></li>
-                                            <li data-target="#youtube-carousel1" data-slide-to="2"></li>
-                                            <li data-target="#youtube-carousel1" data-slide-to="3"></li>
-                                            <li data-target="#youtube-carousel1" data-slide-to="4"></li>
-                                        </ol>
-
-                                        <!-- Videos -->
-                                        <div class="carousel-inner">
-                                            <div class="item active drinks-item" id="drinks-video0" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-
-                                            <div class="item drinks-item" id="drinks-video1" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-
-                                            <div class="item drinks-item" id="drinks-video2" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-                                            <div class="item drinks-item" id="drinks-video3" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-                                            <div class="item drinks-item" id="drinks-video4" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-                                        </div>
-
-                                        <!-- Left & Right Controls -->
-                                        <a class="left carousel-control" href="#youtube-carousel1" data-slide="prev">
-                                            <span class="glyphicon glyphicon-chevron-left"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="right carousel-control" href="#youtube-carousel1" data-slide="next">
-                                            <span class="glyphicon glyphicon-chevron-right"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                </div><!--DRINK CAROUSEL END-->
-                            </div>
-                        </div>
-                    </div>
-                </div><!--DRINKS END-->
-
-                <!--FOOD-->
-                <div class="food-container col-sm-6 col-xs-12">
-                    <h3 class="food-header col-sm-12">Food Recipes</h3>
-                    <!--SEARCH BAR FOR FOOD RECIPES-->
-                    <form class="form-inline col-sm-12">
-                        <div class="food-search form-group">
-                            <input placeholder="Enter Ingredient" type="text" id='food-input' class="form-control">
-                            <button class="submit-food btn btn-danger" id="submit-food" type="button">Search Recipes</button>
-                        </div>
-                    </form>
-
-                    <!--FOOD START-->
-                    <div class="container-fluid">
-                        <div class="recipe-list">
-                            <div class="recipe-list rL1">
-                            </div>
-                            <div class="recipe-list rL2">
-                            </div>
-                        </div>
-                        <div class="recipe">
-                            <h2></h2>
-                            <div class="recipe-photo"></div>
-                            <div class="food-ingredients">
-                                <h3>Ingredients</h3>
-                                <ul></ul>
-                            </div>
-                            <div class="instructions">
-                                <h3>Instructions</h3>
-                                <p></p>
-                            </div>
-                            <div class="vid-tutorials">
-                                <h3>Video Tutorials Containing: <span class="food-search-term"></span></h3>
-                                <p>
-                                <!--FOOD CAROUSEL START-->
-                                <div class="carousel-container hidden" id="food-carousel">
-                                    <div class="carousel slide" id="youtube-carousel2" data-pause='hover' data-ride="carousel">
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#youtube-carousel2" data-slide-to="0" class="active"></li>
-                                            <li data-target="#youtube-carousel2" data-slide-to="1"></li>
-                                            <li data-target="#youtube-carousel2" data-slide-to="2"></li>
-                                            <li data-target="#youtube-carousel2" data-slide-to="3"></li>
-                                            <li data-target="#youtube-carousel2" data-slide-to="4"></li>
-                                        </ol>
-
-                                        <!-- Videos -->
-                                        <div class="carousel-inner">
-                                            <div class="item active food-item" id="food-video0" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-
-                                            <div class="item food-item" id="food-video1" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-
-                                            <div class="item food-item" id="food-video2" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-                                            <div class="item food-item" id="food-video3" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-                                            <div class="item food-item" id="food-video4" style="text-align: center">
-                                                <!--youtube video will go here-->
-                                            </div>
-                                        </div>
-
-                                        <!-- Left & Right Controls -->
-                                        <a class="left carousel-control" href="#youtube-carousel2" data-slide="prev">
-                                            <span class="glyphicon glyphicon-chevron-left"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="right carousel-control" href="#youtube-carousel2" data-slide="next">
-                                            <span class="glyphicon glyphicon-chevron-right"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!--FOOD CAROUSEL END-->
-                        </div>
-                    </div>
-                </div><!--FOOD END-->
-                
-                <!-- <nav aria-label="...">
-                    <ul class="pager">
-                        <li class="back-to-list"><span aria-hidden="true">&larr; Back to List</span></li>
-                        <li class="search-again"><span aria-hidden="true">Search Again</span></li>
-                    </ul>
-                </nav> -->
-            </div>
-        </div><!--MAIN CONTENT END-->
-
-        <div class="container" id="about">
-            <h3>About</h3>
-            <p>Fridge Bridge helps you find recipes to make with the ingredients you have. Search for the main ingredient you wish to use and choose from the list of recipes found with desired ingredient.</p>
-            <br>
-            <p>API's include:</p>
-            <ul>
-                <li>CocktailDB - For all drinks</li>
-                <li>Yummly - For all food</li>
-                <li>Youtube - For related videos</li>
+        <div class="collapse navbar-collapse navbar-right" id="mainNav">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a data-toggle="modal" data-target="#about-modal">About</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" data-target="#contact-modal">Contact</a>
+                </li>
             </ul>
         </div>
+    </nav>
+    <!--NAVIGATION MENU END-->
 
-        <div class="container" id="contact">
-            <h3 class="col-sm-3 col-xs-12">Github<img src="images/github-10-xxl.png" id="git-logo"></h3>
-            <ul class="col-sm-9 col-xs-12 github-links">
-                <li><a href="https://github.com/kryseno">Krystal</a></li>
-                <li><a href="https://github.com/oowretep">Peter</a></li>
-                <li><a href="https://github.com/pk316">Prosith</a></li>
-                <!-- <li><a href="https://github.com/csinocruz">Francesca</a></li> -->
-            </ul>
-        </div>
+    <div class="jumbotron welcome" id="home">
+        <h1>
+            <b>Bridging</b> the gap between
+            <b>hungry</b> and
+            <b>happy</b>
+        </h1>
+    </div>
 
-        <!-- error modal -->
-        <div id="error-modal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h4>Error</h4>
+    <!--MAIN CONTENT-->
+    <div class="container-fluid">
+
+        <!--DRINKS-->
+        <div class="drink-container col-sm-6 col-xs-12">
+            <div class="drink-search form-group">
+                <h3 class="drink-header col-sm-12">Drink Recipes</h3>
+                <!--SEARCH BAR FOR DRINK RECIPES-->
+                <form class="form-inline col-sm-12">
+                    <input class="input-drink form-control" type="text" name="input" placeholder="Enter Ingredient">
+                    <button class="submit-drink btn btn-danger" id="submit-drink" type="button">Search Drinks</button>
+                </form>
+            </div>
+
+            <!--DRINK RESULTS-->
+            <div class="drink-results">
+                <div class="drink-list">
+                    <ul>
+
+                    </ul>
+                </div>
+
+                <div class="drink-ing">
+                    <h2></h2>
+                    <div class="photo-img"></div>
+                    <div class="ingred-sec">
+                        <h3>Ingredients</h3>
+                        <ul></ul>
+                    </div>
+                    <div class="desc-sec">
+                        <h3>Instructions</h3>
                         <p></p>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="close" data-dismiss="modal">Close &times;</button>
+                    <div class="youtube-sec">
+                        <h3>Video Tutorials Containing
+                            <span class="drinks-search-term"></span>
+                        </h3>
+                        <!--DRINK CAROUSEL START-->
+                        <div class="carousel_container hidden" id="drinks-carousel">
+                            <div class="carousel slide" id="youtube-carousel1" data-pause='hover' data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#youtube-carousel1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#youtube-carousel1" data-slide-to="1"></li>
+                                    <li data-target="#youtube-carousel1" data-slide-to="2"></li>
+                                    <li data-target="#youtube-carousel1" data-slide-to="3"></li>
+                                    <li data-target="#youtube-carousel1" data-slide-to="4"></li>
+                                </ol>
+
+                                <!-- Videos -->
+                                <div class="carousel-inner">
+                                    <div class="item active drinks-item" id="drinks-video0" style="text-align: center">
+                                        <!--youtube video will go here-->
+                                    </div>
+
+                                    <div class="item drinks-item" id="drinks-video1" style="text-align: center">
+                                        <!--youtube video will go here-->
+                                    </div>
+
+                                    <div class="item drinks-item" id="drinks-video2" style="text-align: center">
+                                        <!--youtube video will go here-->
+                                    </div>
+                                    <div class="item drinks-item" id="drinks-video3" style="text-align: center">
+                                        <!--youtube video will go here-->
+                                    </div>
+                                    <div class="item drinks-item" id="drinks-video4" style="text-align: center">
+                                        <!--youtube video will go here-->
+                                    </div>
+                                </div>
+
+                                <!-- Left & Right Controls -->
+                                <a class="left carousel-control" href="#youtube-carousel1" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#youtube-carousel1" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!--DRINK CAROUSEL END-->
                     </div>
                 </div>
             </div>
         </div>
-        
-    </body>
+        <!--DRINKS END-->
+
+        <!--FOOD-->
+        <div class="food-container col-sm-6 col-xs-12">
+            <div class="food-search form-group">
+                <h3 class="food-header col-sm-12">Food Recipes</h3>
+                <!--SEARCH BAR FOR FOOD RECIPES-->
+                <form class="form-inline col-sm-12">
+                    <input placeholder="Enter Ingredient" type="text" id='food-input' class="form-control">
+                    <button class="submit-food btn btn-danger" id="submit-food" type="button">Search Recipes</button>
+                </form>
+            </div>
+
+            <!--FOOD RESULTS-->
+            <div class="food-results">
+                <div class="recipe-list">
+                    <div class="recipe-list rL1">
+                    </div>
+                    <div class="recipe-list rL2">
+                    </div>
+                </div>
+                <div class="recipe">
+                    <h2></h2>
+                    <div class="recipe-photo"></div>
+                    <div class="food-ingredients">
+                        <h3>Ingredients</h3>
+                        <ul></ul>
+                    </div>
+                    <div class="instructions">
+                        <h3>Instructions</h3>
+                        <p></p>
+                    </div>
+                    <div class="vid-tutorials">
+                        <h3>Video Tutorials Containing:
+                            <span class="food-search-term"></span>
+                        </h3>
+                        <p>
+                            <!--FOOD CAROUSEL START-->
+                            <div class="carousel-container hidden" id="food-carousel">
+                                <div class="carousel slide" id="youtube-carousel2" data-pause='hover' data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#youtube-carousel2" data-slide-to="0" class="active"></li>
+                                        <li data-target="#youtube-carousel2" data-slide-to="1"></li>
+                                        <li data-target="#youtube-carousel2" data-slide-to="2"></li>
+                                        <li data-target="#youtube-carousel2" data-slide-to="3"></li>
+                                        <li data-target="#youtube-carousel2" data-slide-to="4"></li>
+                                    </ol>
+
+                                    <!-- Videos -->
+                                    <div class="carousel-inner">
+                                        <div class="item active food-item" id="food-video0" style="text-align: center">
+                                            <!--youtube video will go here-->
+                                        </div>
+
+                                        <div class="item food-item" id="food-video1" style="text-align: center">
+                                            <!--youtube video will go here-->
+                                        </div>
+
+                                        <div class="item food-item" id="food-video2" style="text-align: center">
+                                            <!--youtube video will go here-->
+                                        </div>
+                                        <div class="item food-item" id="food-video3" style="text-align: center">
+                                            <!--youtube video will go here-->
+                                        </div>
+                                        <div class="item food-item" id="food-video4" style="text-align: center">
+                                            <!--youtube video will go here-->
+                                        </div>
+                                    </div>
+
+                                    <!-- Left & Right Controls -->
+                                    <a class="left carousel-control" href="#youtube-carousel2" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#youtube-carousel2" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+                    <!--FOOD CAROUSEL END-->
+                </div>
+            </div>
+        </div>
+        <!--FOOD END-->
+    </div>
+
+    <!-- <nav aria-label="...">
+            <ul class="pager">
+                <li class="back-to-list"><span aria-hidden="true">&larr; Back to List</span></li>
+                <li class="search-again"><span aria-hidden="true">Search Again</span></li>
+            </ul>
+        </nav> -->
+
+    <!-- MODAL -->
+    <!-- error modal -->
+    <div id="error-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4>Error</h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal">Close &times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- about modal -->
+    <div id="about-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>About</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Fridge Bridge helps you find recipes to make with the ingredients you have. Search for the main ingredient
+                        you wish to use and choose from the list of recipes found with desired ingredient.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal">Close &times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- contact modal -->
+    <div id="contact-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Contact</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Github
+                        <img src="images/github-10-xxl.png" id="git-logo">
+                    </h3>
+                    <ul class="github-links">
+                        <li>
+                            <a href="https://github.com/kryseno">Krystal</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/oowretep">Peter</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/pk316">Prosith</a>
+                        </li>
+                        <!-- <li><a href="https://github.com/csinocruz">Francesca</a></li> -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal">Close &times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>
