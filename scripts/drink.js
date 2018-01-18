@@ -112,7 +112,7 @@ function searchCocktail() {
             error: errorMessage
         })
     } else {
-        displayErrorMessage('Please enter an ingredient before searching');
+        displayErrorMessage('Please enter a drink ingredient before searching');
     }
 }
 /***************************************************************************************************
