@@ -19,7 +19,6 @@ function addClickHandlers() {
     $('.input-drink').keydown(function(event){
         if (event.keyCode === 13){
             event.preventDefault();
-            console.log('enter was pressed');
             $('.submit-drink').click();
         }
     });
@@ -59,12 +58,13 @@ function searchDB() {
  * @returns  {undefined}
  * shows modal and text for error
  */
-function displayErrorMessage(message){
+function displayErrorMessage(string1, string2, string3){
     $('#error-modal').modal('show');
-    $('.modal-body > p').text(message);
+    $('#error-modal .modal-body > p:nth-child(2)').text(string1);
+    $('#error-modal .modal-body > p:nth-child(3)').text(string2);
+    $('#error-modal .modal-body > p:last-child').text(string3);
 }
 
-//------------------------------ cocktailDB ------------------------------//
 //-----ajax call error-----//
 /***************************************************************************************************
  * errorMessage
@@ -73,8 +73,6 @@ function displayErrorMessage(message){
  * searches cocktail data base and receives list of drinks containing ingredient user searched for
  */
 function errorMessage(data) {
-    console.log('server response error');
-    console.log(data);
     if (data.status === 200) {
         displayErrorMessage('Invalid data type or URL');
     } else if (data.status === 0) {
@@ -82,6 +80,7 @@ function errorMessage(data) {
     }
 }
 
+//------------------------------ cocktailDB ------------------------------//
 //-----getting drinks-----//
 /***************************************************************************************************
  * searchCocktail
@@ -97,22 +96,26 @@ function searchCocktail() {
             url: 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + inputText,
             method: 'get',
             success: function(data) {
-                var allDrinks = JSON.parse(data);
-                if (allDrinks.drinks.length !== 0) {
-                    $('.drink-list > ul').empty();
-                    for (var i = 0; i < allDrinks.drinks.length; i++) {
-                        var drinkList = allDrinks.drinks[i].strDrink;
-                        renderDrinkList(drinkList);
+                if (data !== '') {
+                    var allDrinks = JSON.parse(data);
+                    if (allDrinks.drinks !== undefined || allDrinks.drinks.length !== 0) {
+                        $('.drink-list > ul').empty();
+                        for (var i = 0; i < allDrinks.drinks.length; i++) {
+                            var drinkName = allDrinks.drinks[i].strDrink;
+                            var drinkPhoto = allDrinks.drinks[i].strDrinkThumb
+                            renderDrinkList(drinkName, drinkPhoto);
+                        }
+                    } else if (allDrinks.drinks.length === 0) {
+                        displayErrorMessage('Searching "CocktailDB"...', 'No drinks are found with searched ingredient: ' + inputText + '.', 'Try "Vodka", "Rum", "Mango"');
                     }
-                    console.log('server response FROM COCKTAILDB: ', data.drinks);
-                } else if (data.drinks === 0) {
-                    displyErrorMessage('No drinks are found with ' + inputText + '. Try "Vodka", "Rum", "Mango"');
+                } else {
+                    displayErrorMessage('Searching "CocktailDB"...', 'No drinks are found with searched ingredient: ' + inputText + '.', 'Try "Vodka", "Rum", "Mango"');
                 }
             },
             error: errorMessage
         })
     } else {
-        displayErrorMessage('Please enter an ingredient before searching');
+        displayErrorMessage('Please enter a drink ingredient before searching');
     }
 }
 /***************************************************************************************************
@@ -121,16 +124,32 @@ function searchCocktail() {
  * @returns  {undefined}
  * loops through drink list and appends to page for cocktailDB
  */
-function renderDrinkList(drinkList) {
+function renderDrinkList(name, photo) {
     $('.drink-list').show();
-    var drinkListCt = $('<li>', {
-        text: drinkList,
+    var drinkPhoto = $('<img>', {
+        src: photo,
+        css: {
+            width: '50%'
+        }
+    })
+    var drinkName = $('<h5>', {
+        text: name,
         css: {
             'text-decoration': 'underline',
-            cursor: 'pointer'
+            margin: '2px 0 15px 0'
+        }
+    })
+    var drinkDiv = $('<div>', {
+        css: {
+            margin: 'auto',
+            display: 'inline-block',
+            width: '20vmin',
+            'text-align': 'center',
+            cursor: 'pointer',
         }
     }).click(getDataCocktail);
-    $('.drink-list > ul').append(drinkListCt);
+    $(drinkDiv).append(drinkPhoto, drinkName);
+    $('.drink-list > div').append(drinkDiv);
 }
 /***************************************************************************************************
  * getDataCocktail
@@ -140,7 +159,6 @@ function renderDrinkList(drinkList) {
  */
 function getDataCocktail() {
     var validInput = $(this).text();
-    console.log('cocktailDB server called');
     $.ajax({
         dataType: 'JSON',
         url: 'http://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + validInput,
@@ -148,7 +166,6 @@ function getDataCocktail() {
         success: function(data) {
             var passData = [];
             var drink = data.drinks[0];
-            console.log('server response: ', drink);
             var ingred = [];
             var measurement = [];
             for (var item in drink) {
@@ -183,7 +200,6 @@ function getDataCocktail() {
             var name = drink.strDrink;
             var imgUrl = drink.strDrinkThumb;
             passData.push(measurement, desc, name, imgUrl);
-            console.log(passData);
             renderCocktailInfo(passData);
         },
         error: function(data) {
@@ -201,7 +217,7 @@ function renderCocktailInfo(array) {
     $('.back-drink').removeClass('disabled');
     $('.drink-list').css('display', 'none');
     $('.drink-ing').show();
-    $('.photo-img').css('background-image', 'url(' + array[3] + ')');
+    $('.photo-img > img').css('background-image', 'url(' + array[3] + ')');
     if (typeof(array[0]) === 'object') {
         $('.ingred-sec > ul').empty();
         var ingredients = array[0];

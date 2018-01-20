@@ -91,7 +91,7 @@ function getRecipe() {
             },
         })
     } else {
-        displayErrorMessage('Please enter an ingredient before searching');
+        displayErrorMessage('Please enter a food ingredient before searching');
     }
 }
 /***************************************************************************************************

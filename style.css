@@ -11,6 +11,17 @@ li>a {
     color: white;
 }
 
+.mouse-hover {
+    cursor: pointer;
+}
+
+.drink-list,
+.drink-ing,
+.recipe-list,
+.recipe {
+    font-family: 'Quicksand', sans-serif;
+}
+
 /* NAVBAR */
 .navbar {
     font-family: 'Bungee', cursive;
@@ -32,25 +43,11 @@ li>a {
     margin: 0;
 }
 
-.dropdown-menu {
-    background-color: lightsalmon;
-}
-
-.dropdown-menu>li {
-    text-align: center;
-}
-
 .nav>li>a:focus,
-.nav>li>a:hover,
-.dropdown-menu>li>a:focus,
-.dropdown-menu>li>a:hover {
+.nav>li>a:hover {
     text-decoration: none;
     background-color: white;
     color: lightsalmon;
-}
-
-#main-nav {
-    padding-top: 5px;
 }
 
 .mobile-nav {
@@ -63,7 +60,7 @@ li>a {
     margin: 1px 10px;
 }
 
-/* WELCOME */
+/* MAIN PAGE */
 .welcome {
     height: 40vh;
     width: 100%;
@@ -86,11 +83,19 @@ li>a {
     color: lightsalmon;
 }
 
-/* MAIN CONTENT */
+/* RECIPE AREA */
+.main-area {
+    display: flex;
+    width: 100%;
+}
+
 .drink-container,
 .food-container {
-    height: 200px;
+    min-height: 110px;
+    height: auto;
     background-color: papayawhip;
+    margin: 0 auto;
+    margin-bottom: 5px;
 }
 
 .drink-search,
@@ -102,18 +107,74 @@ li>a {
 
 
 
-.student-logos {
+/* drink area */
+.drink-container {
+    border-right: 1px solid lightsalmon;
+}
+
+.drink-results {
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.drink-list {
+    display: none;
+}
+
+.drink-list > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.drink-ing {
+    display: none;
+}
+
+.photo-img {
     text-align: center;
 }
 
-#main-logo {
-    height: 34vh;
-    width: auto;
-    padding-top: 30px;
-    padding-left: 10vw;
-    padding-bottom: 15px;
+.photo-img > img {
+    height: 10em;
+    width: 10em;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
+.ingred-sec {
+    text-align: center;
+}
+
+.ingred-sec > ul {
+    padding: 0;
+}
+
+.drink-ing > h2,
+.youtube-sec h3 {
+    text-align: center;
+}
+
+/* food */
+.food-container {
+    border-left: 1px solid lightsalmon;
+}
+
+.food-results {
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.recipe-list {
+    display: none;
+    display: inline-block;
+}
+
+.recipe {
+    display: none;
+}
+
+/* carousel */
 .carousel-container {
     width: 60%;
     margin: auto;
@@ -133,36 +194,6 @@ li>a {
     background-color: lightsalmon;
 }
 
-.drink-list {
-    display: none;
-}
-
-.drink-ing {
-    display: none;
-}
-
-.drink-list li {
-    display: table;
-    margin: auto;
-}
-
-.drink-list ul {
-    padding: 0;
-}
-
-.mouse-hover {
-    cursor: pointer;
-}
-
-.photo-img {
-    height: 300px;
-    width: 300px;
-    float: right;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border: none;
-}
-
 .carousel-container {
     margin: auto;
     border: 6px solid lightsalmon;
@@ -171,20 +202,6 @@ li>a {
 
 #video0 {
     background-color: lightsalmon;
-}
-
-.drink-list,
-.drink-ing {
-    font-family: 'Quicksand', sans-serif;
-}
-
-.recipe-list {
-    display: none;
-    display: inline-block;
-}
-
-.recipe {
-    display: none;
 }
 
 
@@ -226,6 +243,7 @@ li>a {
 
 /* RESPONSIVE */
 @media screen and (max-width: 769px) {
+    /* general */
     .welcome>h1 {
         font-size: 2em;
         top: 10%;
@@ -245,5 +263,31 @@ li>a {
     .drink-search form > button,
     .food-search form > button {
         margin-top: 2%;
+    }
+
+    .main-area {
+        display: block;
+    }
+
+    .drink-container,
+    .food-container {
+        border: none;
+        max-height: 300px;
+        overflow: auto;
+    }
+
+    /* drinks */
+    .drink-list > div > div {
+        height: 25vmin;
+    }
+
+    .photo-img {
+        margin-top: 5%;
+    }
+}
+
+@media screen and (max-width: 770px) and (min-height: 901px) {
+    .nav-left {
+        display: none;
     }
 }
