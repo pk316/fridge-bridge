@@ -56,7 +56,7 @@
     <div class="container-fluid main-area">
 
         <!--DRINKS-->
-        <div class="drink-container col-xs-12">
+        <div class="drink-container col-sm-6 col-xs-12">
             <div class="drink-search form-group">
                 <h3 class="drink-header col-sm-12">Drink Recipes</h3>
                 <!--SEARCH BAR FOR DRINK RECIPES-->
@@ -70,23 +70,25 @@
             <!--DRINK RESULTS-->
             <div class="drink-results">
                 <div class="drink-list">
-                    <ul>
+                    <div>
 
-                    </ul>
+                    </div>
                 </div>
 
-                <div class="drink-ing">
+                <div class="drink-ing col-xs-12 col-sm-12">
                     <h2></h2>
-                    <div class="photo-img"></div>
-                    <div class="ingred-sec">
+                    <div class="ingred-sec col-sm-6 col-xs-12">
                         <h3>Ingredients</h3>
                         <ul></ul>
                     </div>
-                    <div class="desc-sec">
+                    <div class="photo-img col-sm-6 col-xs-12">
+                        <img>
+                    </div>
+                    <div class="desc-sec col-sm-12 col-xs-12">
                         <h3>Instructions</h3>
                         <p></p>
                     </div>
-                    <div class="youtube-sec">
+                    <div class="youtube-sec col-sm-12 col-xs-12">
                         <h3>Video Tutorials Containing
                             <span class="drinks-search-term"></span>
                         </h3>
@@ -142,7 +144,7 @@
         <!--DRINKS END-->
 
         <!--FOOD-->
-        <div class="food-container col-xs-12">
+        <div class="food-container col-sm-6 col-xs-12">
             <div class="food-search form-group">
                 <h3 class="food-header col-sm-12">Food Recipes</h3>
                 <!--SEARCH BAR FOR FOOD RECIPES-->
@@ -237,6 +239,8 @@
                 <div class="modal-body">
                     <h4>Error</h4>
                     <p></p>
+                    <p></p>
+                    <p></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="close" data-dismiss="modal">Close &times;</button>
@@ -253,8 +257,9 @@
                     <h4>About</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Fridge Bridge helps you find recipes to make with the ingredients you have. Search for the main ingredient
-                        you wish to use and choose from the list of recipes found with desired ingredient.</p>
+                    <p>Utilizing the CocktailDB API, Fridge Bridge helps you find recipes to make with the ingredients you have. Search for the main ingredient
+                        you wish to use and choose from the list of recipes found with the desired ingredient.</p>
+                    <p>The list of drinks and ingredients are referenced from CocktailDB and the results are not our own.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="close" data-dismiss="modal">Close &times;</button>

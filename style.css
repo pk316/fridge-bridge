@@ -93,9 +93,9 @@ li>a {
 .food-container {
     min-height: 110px;
     height: auto;
-    width: 49.5%;
     background-color: papayawhip;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 5px;
 }
 
 .drink-search,
@@ -106,34 +106,65 @@ li>a {
 
 
 
+
 /* drink area */
+.drink-container {
+    border-right: 1px solid lightsalmon;
+}
+
+.drink-results {
+    display: inline-block;
+    margin-top: 1%;
+}
+
 .drink-list {
     display: none;
+}
+
+.drink-list > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .drink-ing {
     display: none;
 }
 
-.drink-list li {
-    display: table;
-    margin: auto;
+.photo-img {
+    text-align: center;
 }
 
-.drink-list ul {
+.photo-img > img {
+    height: 10em;
+    width: 10em;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ingred-sec {
+    text-align: center;
+}
+
+.ingred-sec > ul {
     padding: 0;
 }
 
-.photo-img {
-    height: 300px;
-    width: 300px;
-    float: right;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border: none;
+.drink-ing > h2,
+.youtube-sec h3 {
+    text-align: center;
 }
 
 /* food */
+.food-container {
+    border-left: 1px solid lightsalmon;
+}
+
+.food-results {
+    display: inline-block;
+    margin-top: 1%;
+}
+
 .recipe-list {
     display: none;
     display: inline-block;
@@ -212,6 +243,7 @@ li>a {
 
 /* RESPONSIVE */
 @media screen and (max-width: 769px) {
+    /* general */
     .welcome>h1 {
         font-size: 2em;
         top: 10%;
@@ -233,10 +265,29 @@ li>a {
         margin-top: 2%;
     }
 
+    .main-area {
+        display: block;
+    }
+
     .drink-container,
     .food-container {
-        display: block;
-        width: 100%;
-        margin: 0;
+        border: none;
+        max-height: 300px;
+        overflow: auto;
+    }
+
+    /* drinks */
+    .drink-list > div > div {
+        height: 25vmin;
+    }
+
+    .photo-img {
+        margin-top: 5%;
+    }
+}
+
+@media screen and (max-width: 770px) and (min-height: 901px) {
+    .nav-left {
+        display: none;
     }
 }
