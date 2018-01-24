@@ -140,6 +140,9 @@ function getInstructionUrl(recipeObj) {
  *
  */
 function renderIngredients(recipeObj, recipeUrl) {
+    if ($('.recipe  h2') !== ''){
+        $('.recipe h2 , .recipe-photo, .food-ingredients ul li, .instructions > a').empty();
+    }
     $('.back-food').removeClass('disabled');
     $('.recipe').show();
     $('.recipe-list').hide();
@@ -153,6 +156,10 @@ function renderIngredients(recipeObj, recipeUrl) {
         target: '_blank'
     }).text(recipeUrl);
     $('.recipe .instructions').append(instructions);
-    var ingredientList = $('<p>').text(recipeObj.ingredients);
-    $('.recipe .food-ingredients').append(ingredientList);
+    for (var i = 0; i < recipeObj.ingredients.length; i++){
+        var ingredient = $('<li>', {
+            text: recipeObj.ingredients[i]
+        })
+        $('.food-ingredients > ul').append(ingredient)
+    }
 }
