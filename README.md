@@ -12,7 +12,7 @@ Fridge Bridge is a food and drink recipe application which incorporates the Yout
 
 ### Developers
 
-Created by three developers as part of a Hackathon at Learning Fuze
+Created in collaboration 
 
 [Krystal Enojado](https://github.com/kryseno)
 
