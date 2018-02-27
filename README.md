@@ -1,6 +1,6 @@
 # Fridge Bridge
 
-Fridge Bridge is a food and drink recipe application which incorporates Youtube, Yummly, and CocktailDB APIs
+Fridge Bridge is a food and drink recipe application which incorporates the Youtube, Yummly, and CocktailDB APIs
 
 ![Fridge-Bridge](images/readme.png)
 
@@ -10,10 +10,12 @@ Fridge Bridge is a food and drink recipe application which incorporates Youtube,
 - Issue-managed via meistertask 
 
 
-###Developers
+### Developers
 
 Created by three developers as part of a Hackathon at Learning Fuze
 
 [Krystal Enojado](https://github.com/kryseno)
+
 [Prosith Khiev](https://github.com/pk316)
+
 [Peter Woo](https://github.com/oowretep)
