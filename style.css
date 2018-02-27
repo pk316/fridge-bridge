@@ -1,224 +1,303 @@
-
-/*Cesca's Code*/
-
 body {
-    background-color: darkorange;
+    background-color: lightsalmon;
 }
 
-#fridgeLogo {
-    height: 8vh;
-    width: auto;
-    margin: 25px 20px 20px 30px;
+ul>li {
+    list-style-type: none;
 }
 
-#gitLogo {
-    height: 8vh;
-    width: auto;
-    margin-left: 5px;
-}
-
-.navmenu {
-    overflow: hidden;
-    background-color: darkorange;
-    font-family: 'Bungee', cursive;
-    height: 15vh;
-    width: 100%;
-    position: fixed;
-    border-bottom: 1px solid orangered;
-}
-
-.navmenu a {
-    float: right;
-    display: block;
-    text-align: center;
-    padding: 40px 16px;
+li>a {
     text-decoration: none;
-    font-size: 17px;
     color: white;
 }
 
-.navmenu a:hover {
-    color: orangered;
-}
-
-.header {
-    height: 80vh;
-    width: 100%;
-    background-image: url("images/culinary.jpg");
-    background-repeat: no-repeat;
-    /*background-attachment: fixed;*/
-    background-position: center left;
-}
-
-#motto {
-    color: white;
-    margin: auto;
-    max-width: 580px;
-    font-size: 58px;
-    text-shadow: -1px -3px 13px black;
-    text-align: center;
-    font-family: 'Slabo 27px', serif;
-    padding-top: 20%;
-}
-
-#mottoMobile {
-    color: white;
-    margin: auto;
-    max-width: 300px;
-    font-size: 35px;
-    text-shadow: -1px -3px 13px black;
-    text-align: center;
-    font-family: 'Slabo 27px', serif;
-    padding-top: 50%;
-}
-
-.footer {
-    overflow: auto;
-    background-color: darkorange;
-    font-family: 'Bungee', cursive;
-    height: 40vh;
-    color: white;
-    padding: 0px 8vw;
-    /*display: flex;*/
-    /*justify-content: space-around;*/
-}
-
-.content {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.recipeArea {
-    height: 700px;
-    width: 90vw;
-    border: 1px solid lightgrey;
-    display: inline-block;
-    overflow: scroll;
-    background-color: papayawhip;
-
-}
-
-li a{
-    color: white;
-    font-size: large;
-
-}
-
-li a:hover {
-    color: orangered;
-    text-decoration: none;
-}
-
-.githubLinks > ul li {
-    list-style: none;
-    padding: 2px;
-     /*text-align: center;*/
- }
-
-.studentLogos .githubLinks #gitLogo {
-    text-align: center;
-}
-
-#mainLogo {
-    height: 34vh;
-    width: auto;
-    padding-top: 30px;
-    padding-left: 10vw;
-    padding-bottom: 15px;
-}
-
-/*Krystal's Code*/
-.carousel_container {
-    width: 60%;
-    margin: auto;
-    border: 6px solid darkorange;
-    border-radius: 10px;
-}
-.carousel_container .hidden{
-    display: none;
-}
-.carousel-control {
-    width: 5%;
-}
-.carousel-inner {
-    background-color: darkorange;
-}
-
-/* peter css */
-.drinkList {
-    display: none;
-    /*border: 1px solid black;*/
-}
-
-.drinkIng {
-    display: none;
-    /*border: 1px solid black;*/
-}
-
-.drinkList li {
-    display: table;
-    margin:auto;
-}
-
-.drinkList ul {
-    padding: 0;
-}
-
-.mouseHover {
+.mouse-hover {
     cursor: pointer;
 }
 
-.photoImg {
-    height: 300px;
-    width: 300px;
-    float: right;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border: none;
+.drink-list,
+.drink-ing,
+.recipe-list,
+.recipe {
+    font-family: 'Quicksand', sans-serif;
 }
 
-.carousel_container {
+/* NAVBAR */
+.navbar {
+    font-family: 'Bungee', cursive;
+}
+
+.custom-nav {
+    margin-bottom: 1px;
+    background-color: lightsalmon;
+}
+
+.nav-left>img {
+    height: 50px;
+}
+
+.nav-left>p {
+    display: inline;
+    color: white;
+    padding-left: 15px;
+    margin: 0;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: white;
+    color: lightsalmon;
+}
+
+.mobile-nav {
+    height: 10vh;
+}
+
+.nav-toggle {
+    position: relative;
+    float: right;
+    margin: 1px 10px;
+}
+
+/* MAIN PAGE */
+.welcome {
+    height: 40vh;
+    width: 100%;
+    background-image: url("images/culinary.jpg");
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding: 1% 0;
+    display: flex;
+}
+
+.welcome>h1 {
+    color: white;
     margin: auto;
-    border: 6px solid darkorange;
+    text-shadow: -1px -3px 13px black;
+    font-family: 'Slabo 27px', serif;
+    text-align: center;
+}
+
+.welcome>h1 b {
+    color: lightsalmon;
+}
+
+/* RECIPE AREA */
+.main-area {
+    display: flex;
+    width: 100%;
+}
+
+.drink-container,
+.food-container {
+    min-height: 110px;
+    height: auto;
+    background-color: papayawhip;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.drink-search,
+.food-search {
+    text-align: center;
+}
+
+
+
+
+
+/* drink area */
+.drink-container {
+    border-right: 1px solid lightsalmon;
+}
+
+.drink-results {
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.drink-list {
+    display: none;
+}
+
+.drink-list > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.drink-ing {
+    display: none;
+}
+
+.photo-img {
+    text-align: center;
+}
+
+.photo-img > img {
+    height: 10em;
+    width: 10em;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ingred-sec {
+    text-align: center;
+}
+
+.ingred-sec > ul {
+    padding: 0;
+}
+
+.drink-ing > h2,
+.youtube-sec h3 {
+    text-align: center;
+}
+
+/* food */
+.food-container {
+    border-left: 1px solid lightsalmon;
+}
+
+.food-results {
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.recipe-list {
+    display: none;
+}
+
+.recipe-list > div {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+}
+
+.recipe {
+    display: none;
+}
+
+/* carousel */
+.carousel-container {
+    width: 60%;
+    margin: auto;
+    border: 6px solid lightsalmon;
+    border-radius: 10px;
+}
+
+.carousel-container .hidden {
+    display: none;
+}
+
+.carousel-control {
+    width: 5%;
+}
+
+.carousel-inner {
+    background-color: lightsalmon;
+}
+
+.carousel-container {
+    margin: auto;
+    border: 6px solid lightsalmon;
     border-radius: 10px;
 }
 
 #video0 {
-    background-color: darkorange;
+    background-color: lightsalmon;
 }
 
-.drinkList, .drinkIng {
-    font-family: 'Quicksand', sans-serif;
+
+/* MODAL */
+/* contact modal */
+#about-modal .modal-content,
+#contact-modal .modal-content {
+    color: white;
+    background-color: lightsalmon;
 }
 
-/*TESTING SLIDE MOTION FOR DIV*/
-#expand-drink {
-    border: 1px solid darkorange;
+#contact-modal .modal-body>h3,
+.github-links {
+    text-align: center;
 }
-#expand-drink-body{
-    height: 15px;
-    overflow: hidden;
-    transition:         height 500ms ease;
-    -moz-transition:    height 500ms ease;
-    -ms-transition:     height 500ms ease;
-    -o-transition:      height 500ms ease;
-    -webkit-transition: height 500ms ease;
+
+#git-logo {
+    height: 4.5vh;
 }
-.expanded {
-    height: 550px !important;
+
+.github-links {
+    padding: 0;
 }
-#more {
-    cursor: pointer;
-    text-align: right;
+
+.github-links>li {
+    display: inline;
 }
-/****************************/
-/* PROSITH CSS */
-.recipeList {
-    display: none;
-    display: inline-block;
+
+.github-links>li a {
+    padding: 10px 20px;
 }
-.recipe{
-    display: none;
+
+.github-links>li a:hover {
+    text-decoration: none;
+    color: lightsalmon;
+    background-color: white;
+}
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 769px) {
+    /* general */
+    .welcome>h1 {
+        font-size: 2em;
+        top: 10%;
+        position: relative;
+    }
+
+    .nav-left {
+        display: none;
+    }
+
+    .github-links {
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .drink-search form > button,
+    .food-search form > button {
+        margin-top: 2%;
+    }
+
+    .main-area {
+        display: block;
+    }
+
+    .drink-container,
+    .food-container {
+        border: none;
+        max-height: 300px;
+        overflow: auto;
+    }
+
+    /* drinks */
+    .drink-list > div > div {
+        height: 25vmin;
+    }
+
+    .photo-img {
+        margin-top: 5%;
+    }
+
+    /* food */
+    .recipe-list > div > div > img{
+        height: 20vmin ;
+    }
+}
+
+@media screen and (max-width: 770px) and (min-height: 901px) {
+    .nav-left {
+        display: none;
+    }
 }
