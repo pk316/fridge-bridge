@@ -10,9 +10,7 @@ Fridge Bridge is a food and drink recipe application which incorporates the Yout
 - Issue-managed via meistertask 
 
 
-### Developers
-
-Created in collaboration 
+### Created in collaboration 
 
 [Krystal Enojado](https://github.com/kryseno)
 
