@@ -2,11 +2,11 @@ body {
     background-color: lightsalmon;
 }
 
-ul>li {
+ul > li {
     list-style-type: none;
 }
 
-li>a {
+li > a {
     text-decoration: none;
     color: white;
 }
@@ -32,19 +32,19 @@ li>a {
     background-color: lightsalmon;
 }
 
-.nav-left>img {
+.nav-left > img {
     height: 50px;
 }
 
-.nav-left>p {
+.nav-left > p {
     display: inline;
     color: white;
     padding-left: 15px;
     margin: 0;
 }
 
-.nav>li>a:focus,
-.nav>li>a:hover {
+.nav > li > a:focus,
+.nav > li > a:hover {
     text-decoration: none;
     background-color: white;
     color: lightsalmon;
@@ -71,7 +71,7 @@ li>a {
     display: flex;
 }
 
-.welcome>h1 {
+.welcome > h1 {
     color: white;
     margin: auto;
     text-shadow: -1px -3px 13px black;
@@ -79,7 +79,7 @@ li>a {
     text-align: center;
 }
 
-.welcome>h1 b {
+.welcome > h1 b {
     color: lightsalmon;
 }
 
@@ -102,10 +102,6 @@ li>a {
 .food-search {
     text-align: center;
 }
-
-
-
-
 
 /* drink area */
 .drink-container {
@@ -209,7 +205,6 @@ li>a {
     background-color: lightsalmon;
 }
 
-
 /* MODAL */
 /* contact modal */
 #about-modal .modal-content,
@@ -231,20 +226,19 @@ li>a {
     padding: 0;
 }
 
-.github-links>li {
+.github-links > li {
     display: inline;
 }
 
-.github-links>li a {
+.github-links > li a {
     padding: 10px 20px;
 }
 
-.github-links>li a:hover {
+.github-links > li a:hover {
     text-decoration: none;
     color: lightsalmon;
     background-color: white;
 }
-
 
 /* RESPONSIVE */
 @media screen and (max-width: 769px) {
