@@ -1,11 +1,9 @@
+$(document).ready(initializeApp)
 /***************************************************************************************************
  * initializeApp
  * @params {undefined} none
  * @returns: {undefined} none
  * initializes the application, */
-
-$(document).ready(initializeApp)
-
 function initializeApp() {
     addClickHandler();
 }
