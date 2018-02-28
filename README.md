@@ -1,8 +1,9 @@
 # Fridge Bridge
 
-### Technologies: 
-----
+### Technologies:
 #### JavaScript, jQuery, Bootstrap, Ajax, CSS3, HTML5
+
+----
 
 Fridge Bridge is a food and drink recipe application which incorporates the Youtube, Yummly, and CocktailDB APIs
 
