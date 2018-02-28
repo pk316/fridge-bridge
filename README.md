@@ -1,7 +1,6 @@
 # Fridge Bridge
 
-### Technologies:
-#### JavaScript, jQuery, Bootstrap, Ajax, CSS3, HTML5
+### Technologies: JavaScript, jQuery, Bootstrap, Ajax, CSS3, HTML5
 
 ----
 
